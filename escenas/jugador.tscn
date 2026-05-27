@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://buke36obvtgni"]
+
+[ext_resource type="Script" uid="uid://djhne4wwh3nx3" path="res://escenas/jugador.gd" id="1_jpodt"]
+[ext_resource type="Texture2D" uid="uid://dh8yq1aqwkvwh" path="res://Arte/pj 1.png" id="1_tml57"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jpodt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tml57")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tml57"]
+radius = 30.0
+height = 80.0
+
+[node name="Jugador" type="CharacterBody2D" unique_id=986974813]
+position = Vector2(506, 1685)
+scale = Vector2(1.31, 1.31)
+script = ExtResource("1_jpodt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=803884170]
+sprite_frames = SubResource("SpriteFrames_jpodt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1037478709]
+position = Vector2(-2, 19)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tml57")
