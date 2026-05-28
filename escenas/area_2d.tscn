@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bxtjn2w1ox14j"]
+
+[ext_resource type="Script" uid="uid://c0318ajfgnhw4" path="res://escenas/area_2d.gd" id="1_ps4le"]
+[ext_resource type="Texture2D" uid="uid://bqm7mgord7grr" path="res://Arte/enemigoms dungeon krit png.png" id="1_tbxjd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps4le"]
+atlas = ExtResource("1_tbxjd")
+region = Rect2(384, 360, 384, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1dqpx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps4le")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ps4le"]
+radius = 102.0049
+
+[node name="EnemigoMomia" type="Area2D" unique_id=92817530 groups=["enemigos"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ps4le")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1289865645 groups=["enemigos"]]
+position = Vector2(31, 16)
+sprite_frames = SubResource("SpriteFrames_1dqpx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1926468400]
+position = Vector2(-1, -22)
+shape = SubResource("CircleShape2D_ps4le")
