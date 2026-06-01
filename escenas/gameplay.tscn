@@ -14,11 +14,11 @@ texture = ExtResource("1_1m2o7")
 [node name="Jugador" parent="." unique_id=986974813 instance=ExtResource("2_dnloj")]
 
 [node name="Marcador1" type="Marker2D" parent="." unique_id=16709129]
-position = Vector2(126, 1021)
+position = Vector2(245, 1136)
 
 [node name="Marcador2" type="Marker2D" parent="." unique_id=661312952]
-position = Vector2(829, 339)
+position = Vector2(925, 615)
 
 [node name="EnemigoMomia" parent="." unique_id=92817530 node_paths=PackedStringArray("marcadores") instance=ExtResource("3_1m2o7")]
-position = Vector2(725, 539)
+position = Vector2(890, 640)
 marcadores = [NodePath("../Marcador1"), NodePath("../Marcador2")]

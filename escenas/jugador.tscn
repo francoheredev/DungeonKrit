@@ -23,7 +23,7 @@ radius = 60.0
 height = 184.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jpodt"]
-radius = 536.4513
+radius = 473.0
 
 [node name="Jugador" type="CharacterBody2D" unique_id=986974813]
 position = Vector2(506, 1685)
