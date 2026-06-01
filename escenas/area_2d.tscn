@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ps4le"]
-radius = 102.0049
+radius = 102.0
 
 [node name="EnemigoMomia" type="Area2D" unique_id=92817530 groups=["enemigos"]]
 collision_layer = 2
