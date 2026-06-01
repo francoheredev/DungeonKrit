@@ -1,16 +1,13 @@
 extends CharacterBody2D
 
 @export var velocidad: float = 400.0
-@export var velocidad_apuntado: float = 10.0 # Qué tan rápido gira el personaje
+@export var velocidad_apuntado: float = 10.0 # que tan rápido apunta
 
 var tocando: bool = false # o tocas o no tocas
 var inicio_toque: Vector2 = Vector2.ZERO
 var direccion: Vector2 = Vector2.ZERO
-
-# Obtenemos la referencia al nodo del círculo de visión y al láser indicador
 @onready var radio_vision = $radio_vision
-@onready var laser = $Line2D # <-- NUEVO: Busca el nodo Line2D en tu escena
-
+@onready var laser = $Line2D 
 func _input(event):
 	# esto detecta el primer toque y soltar
 	if event is InputEventScreenTouch:
@@ -29,24 +26,24 @@ func _input(event):
 
 
 func _physics_process(delta):
-	# 1. CONTROL DE MOVIMIENTO (Tu código original)
+	# 1. CONTROL DE MOVIMIENTO 
 	if tocando:
 		velocity = direccion * velocidad
 	else:
-		velocity = Vector2.ZERO # si no tocamos el personaje no se mueve
+		velocity = Vector2.ZERO # si no tocamos, el personaje no se mueve
 		
 	move_and_slide()
 	
-	# 2. SISTEMA DE VISIÓN Y APUNTADO (Nueva función integrada)
+	# 2. SISTEMA DE VISIÓN Y APUNTADO
 	apuntar_al_enemigo_cercano(delta)
 
 
 func apuntar_al_enemigo_cercano(delta):
-	# IMPORTANTE: get_overlapping_areas() busca SOLO nodos de tipo Area2D
+	# busca SOLO nodos de tipo Area2D
 	var areas_dentro = radio_vision.get_overlapping_areas()
 	
-	var enemigo_objetivo = null
-	var distancia_minima = INF
+	var enemigo_objetivo = null #no hay enemigo objetivo
+	var distancia_minima = INF 
 	if areas_dentro.size() > 0:
 		print("¡Círculo tocando algo! Total de áreas: ", areas_dentro.size())
 	for area in areas_dentro:
