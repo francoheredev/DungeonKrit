@@ -61,7 +61,7 @@ func apuntar_al_enemigo_cercano(delta):
 	# Si encontramos el área enemiga más cercana, apuntamos y encendemos el láser
 	if enemigo_objetivo != null:
 		var direccion_hacia_enemigo = enemigo_objetivo.global_position - global_position
-		var angulo_objetivo = direccion_hacia_enemigo.angle()
+		var angulo_objetivo = direccion_hacia_enemigo.angle() + PI/2
 		rotation = lerp_angle(rotation, angulo_objetivo, velocidad_apuntado * delta)
 		
 		var posicion_local_enemigo = to_local(enemigo_objetivo.global_position)

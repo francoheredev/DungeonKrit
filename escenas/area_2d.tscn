@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://bxtjn2w1ox14j"]
 
-[ext_resource type="Script" uid="uid://c0318ajfgnhw4" path="res://escenas/area_2d.gd" id="1_ps4le"]
-[ext_resource type="Texture2D" uid="uid://bqm7mgord7grr" path="res://Arte/enemigoms dungeon krit png.png" id="1_tbxjd"]
+[ext_resource type="Script" uid="uid://c0318ajfgnhw4" path="res://scripts/area_2d.gd" id="1_ps4le"]
+[ext_resource type="Texture2D" uid="uid://c703okgeu4ib1" path="res://Arte/enem1.png" id="2_ps4le"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ps4le"]
-atlas = ExtResource("1_tbxjd")
-region = Rect2(384, 360, 384, 360)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t28q1"]
+atlas = ExtResource("2_ps4le")
+region = Rect2(0, 0, 300, 250)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1dqpx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ps4le")
+"texture": SubResource("AtlasTexture_t28q1")
 }],
 "loop": true,
 "name": &"default",
@@ -27,9 +27,7 @@ collision_mask = 2
 script = ExtResource("1_ps4le")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1289865645 groups=["enemigos"]]
-position = Vector2(31, 16)
 sprite_frames = SubResource("SpriteFrames_1dqpx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1926468400]
-position = Vector2(-1, -22)
 shape = SubResource("CircleShape2D_ps4le")

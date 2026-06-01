@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://bfu0dparv3vo"]
 
-[ext_resource type="Texture2D" uid="uid://dna3syb86po8k" path="res://Arte/apurv-das-ciN8mnrlvFY-unsplash.jpg" id="1_4ssmk"]
+[ext_resource type="Texture2D" uid="uid://q6arkjcpbpnn" path="res://Arte/bg1.png" id="1_1m2o7"]
 [ext_resource type="PackedScene" uid="uid://buke36obvtgni" path="res://escenas/jugador.tscn" id="2_dnloj"]
 [ext_resource type="PackedScene" uid="uid://bxtjn2w1ox14j" path="res://escenas/area_2d.tscn" id="3_1m2o7"]
 
 [node name="gameplay" type="Node2D" unique_id=1782014250]
 
 [node name="ApurvDasCiN8MnrlvFyUnsplash" type="Sprite2D" parent="." unique_id=223556045]
-position = Vector2(544, 1003)
-scale = Vector2(0.60677075, 0.7515901)
-texture = ExtResource("1_4ssmk")
+position = Vector2(540, 960.49994)
+scale = Vector2(0.99999994, 1.0005208)
+texture = ExtResource("1_1m2o7")
 
 [node name="Jugador" parent="." unique_id=986974813 instance=ExtResource("2_dnloj")]
 

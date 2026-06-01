@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeon Krit"
+run/main_scene="uid://bfu0dparv3vo"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
@@ -21,6 +22,10 @@ window/size/viewport_height=1920
 window/size/window_width_override=360
 window/size/window_height_override=640
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Dungeon Krit"
 
 [input_devices]
 

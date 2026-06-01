@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://buke36obvtgni"]
 
-[ext_resource type="Script" uid="uid://djhne4wwh3nx3" path="res://escenas/jugador.gd" id="1_jpodt"]
-[ext_resource type="Texture2D" uid="uid://bqm7mgord7grr" path="res://Arte/enemigoms dungeon krit png.png" id="2_jpodt"]
+[ext_resource type="Script" uid="uid://djhne4wwh3nx3" path="res://scripts/jugador.gd" id="1_jpodt"]
+[ext_resource type="Texture2D" uid="uid://bqnraiygqw2hp" path="res://Arte/pj1.png" id="2_jpodt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njcx7"]
 atlas = ExtResource("2_jpodt")
-region = Rect2(0, 720, 384, 360)
+region = Rect2(0, 0, 250, 300)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jpodt"]
 animations = [{
@@ -30,7 +30,9 @@ position = Vector2(506, 1685)
 script = ExtResource("1_jpodt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=803884170]
+position = Vector2(28, -32)
 sprite_frames = SubResource("SpriteFrames_jpodt")
+frame_progress = 0.4031711
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1037478709]
 position = Vector2(16, 7)
