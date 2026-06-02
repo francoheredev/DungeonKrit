@@ -88,3 +88,6 @@ func _on_hitbox_area_entered(area: Area2D):
 	if area.is_in_group("enemigos") or area.get_parent().is_in_group("enemigos"):
 		print("💥 ¡El jugador está dentro del área de un enemigo! (Nodo detectado: ", area.name, ")")
 		# die() <-- Comentado para que por ahora NO muera, solo deje el mensaje
+		
+#func _detectar_enemigo(delta):
+#	var areas_dentro = Hitbox.get_overlapping_areas()

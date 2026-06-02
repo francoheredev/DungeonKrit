@@ -9,6 +9,7 @@ var direccion: Vector2 = Vector2.ZERO
 var vivo: bool = true
 
 @onready var radio_vision = $radio_vision
+@onready var Hitbox = $Hitbox
 @onready var laser = $Line2D 
 func _input(event):
 	# esto detecta el primer toque y soltar
@@ -37,9 +38,10 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO # si no tocamos, el personaje no se mueve
 		
 	move_and_slide()
-	
+	_detectar_enemigo(delta)
 	# 2. SISTEMA DE VISIÓN Y APUNTADO
 	apuntar_al_enemigo_cercano(delta)
+	
 
 
 func apuntar_al_enemigo_cercano(delta):
@@ -82,9 +84,19 @@ func die():
 	await get_tree().create_timer(1.0).timeout
 	get_tree().reload_current_scene()
 	
-func _on_hitbox_area_entered(area: Area2D):
+func _on_area_entered(area: Area2D) -> void:
+	print("player")
+#func _on_area_entered(area: Area2D):
 	# Verifica si el área o su padre pertenecen al grupo "enemigos"
 	print("aaaa")
 	if area.is_in_group("enemigos") or area.get_parent().is_in_group("enemigos"):
 		print("💥 ¡El jugador está dentro del área de un enemigo! (Nodo detectado: ", area.name, ")")
 		# die() <-- Comentado para que por ahora NO muera, solo deje el mensaje
+		
+func _detectar_enemigo(delta):
+	var areas_dentro = Hitbox.get_overlapping_areas()
+	for area in areas_dentro:
+		# Verificamos si el Area2D pertenece al grupo de los enemigos
+		if area.is_in_group("enemigos"):
+			die ()
+	
