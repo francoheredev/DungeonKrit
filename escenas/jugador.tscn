@@ -25,7 +25,12 @@ height = 184.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_jpodt"]
 radius = 473.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpodt"]
+size = Vector2(174, 48)
+
 [node name="Jugador" type="CharacterBody2D" unique_id=986974813]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(506, 1685)
 script = ExtResource("1_jpodt")
 
@@ -34,7 +39,11 @@ position = Vector2(28, -32)
 sprite_frames = SubResource("SpriteFrames_jpodt")
 frame_progress = 0.4031711
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1037478709]
+[node name="Hitbox" type="Area2D" parent="." unique_id=930490049]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=369169531]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(16, 7)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_tml57")
@@ -51,3 +60,9 @@ shape = SubResource("CircleShape2D_jpodt")
 points = PackedVector2Array(0, -2, -15, -386)
 width = 4.0
 default_color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617015700]
+position = Vector2(16, 19)
+shape = SubResource("RectangleShape2D_jpodt")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -26,8 +26,10 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ps4le")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1289865645 groups=["enemigos"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1289865645]
 sprite_frames = SubResource("SpriteFrames_1dqpx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1926468400]
+light_mask = 2
+visibility_layer = 2
 shape = SubResource("CircleShape2D_ps4le")
