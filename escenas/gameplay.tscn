@@ -27,4 +27,4 @@ position = Vector2(925, 615)
 [node name="Marcador1" type="Marker2D" parent="." unique_id=16709129]
 position = Vector2(245, 1136)
 
-[connection signal="area_entered" from="EnemigoMomia" to="Jugador" method="_on_enemigo_momia_area_entered"]
+[connection signal="area_entered" from="EnemigoMomia" to="EnemigoMomia" method="_on_area_entered"]

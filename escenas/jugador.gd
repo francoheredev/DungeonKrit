@@ -88,8 +88,3 @@ func _on_hitbox_area_entered(area: Area2D):
 	if area.is_in_group("enemigos") or area.get_parent().is_in_group("enemigos"):
 		print("💥 ¡El jugador está dentro del área de un enemigo! (Nodo detectado: ", area.name, ")")
 		# die() <-- Comentado para que por ahora NO muera, solo deje el mensaje
-
-
-func _on_enemigo_momia_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.print("aaaa")
-	print("aaaa")

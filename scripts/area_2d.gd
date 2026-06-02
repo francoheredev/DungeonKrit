@@ -46,3 +46,7 @@ func _process(delta):
 		
 	# Aplicamos la velocidad que calculamos al ángulo del enemigo
 	rotation += velocidad_rotacion_actual * delta
+
+
+func _on_area_entered(area: Area2D) -> void:
+	print("area")

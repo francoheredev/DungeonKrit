@@ -40,6 +40,8 @@ sprite_frames = SubResource("SpriteFrames_jpodt")
 frame_progress = 0.4031711
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=930490049]
+light_mask = 2
+visibility_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=369169531]
 light_mask = 2
@@ -51,6 +53,7 @@ shape = SubResource("CapsuleShape2D_tml57")
 [node name="radio_vision" type="Area2D" parent="." unique_id=1405045722]
 collision_layer = 2
 collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="radio_vision" unique_id=640433550]
 position = Vector2(26, -2)
