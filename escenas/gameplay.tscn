@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://buke36obvtgni" path="res://escenas/jugador.tscn" id="2_dnloj"]
 [ext_resource type="PackedScene" uid="uid://bxtjn2w1ox14j" path="res://escenas/enemigo1.tscn" id="3_1m2o7"]
 [ext_resource type="Texture2D" uid="uid://myblu33f7ls8" path="res://Arte/tile1.png" id="5_jg4y2"]
+[ext_resource type="Script" uid="uid://co8o0712n72ww" path="res://escenas/tiempolabel.gd" id="5_nia68"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nia68"]
 texture = ExtResource("5_jg4y2")
@@ -184,6 +185,9 @@ tile_size = Vector2i(216, 213)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_nia68")
 
+[sub_resource type="LabelSettings" id="LabelSettings_jg4y2"]
+font_size = 83
+
 [node name="gameplay" type="Node2D" unique_id=1782014250]
 
 [node name="fondo" type="Sprite2D" parent="." unique_id=223556045]
@@ -211,3 +215,19 @@ position = Vector2(245, 1136)
 tile_set = SubResource("TileSet_u0vn5")
 format = 2
 layer_0/tile_data = PackedInt32Array(589823, 0, 0, 524287, 0, 0, 458751, 0, 0, 393215, 0, 0, 327679, 0, 0, 262143, 0, 0, 196607, 0, 0, 131071, 0, 0, 65535, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 327685, 0, 0, 393221, 0, 0, 458757, 0, 0, 524293, 0, 0, 589829, 0, 0, 589828, 0, 0, 589827, 0, 0, 589826, 0, 0, 589825, 0, 0, 589824, 0, 0, 655359, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1560071652]
+script = ExtResource("5_nia68")
+
+[node name="TiempoLabel" type="Label" parent="CanvasLayer" unique_id=18128635]
+offset_left = 22.0
+offset_top = 19.0
+offset_right = 235.0
+offset_bottom = 167.0
+text = "00:00"
+label_settings = SubResource("LabelSettings_jg4y2")
+
+[node name="Timer" type="Timer" parent="CanvasLayer" unique_id=1487776026]
+autostart = true
+
+[connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer" method="_on_tiempo_timer_timeout"]
