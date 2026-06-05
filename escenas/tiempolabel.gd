@@ -12,7 +12,7 @@ func _ready():
 	puntos_label.text = "Puntos: 0"
 	kills_label.text = "Kills: 0"
 	krits_label.text = "Krits: 0"
-
+	GameManager.reset()
 func _process(_delta):
 	puntos_label.text = "Puntos: " + str(GameManager.puntos)
 	kills_label.text = "Kills: " + str(GameManager.kills)
