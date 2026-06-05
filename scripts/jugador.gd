@@ -83,7 +83,7 @@ func disparar():
 
 	get_parent().add_child(flecha)
 
-	flecha.global_position = global_position
+	flecha.global_position = global_position + Vector2(55, -100).rotated(global_rotation)
 	flecha.global_rotation = global_rotation
 	flecha.direccion = Vector2.UP.rotated(global_rotation)
 

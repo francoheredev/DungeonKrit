@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://buke36obvtgni" path="res://escenas/jugador.tscn" id="2_dnloj"]
 [ext_resource type="PackedScene" uid="uid://bxtjn2w1ox14j" path="res://escenas/enemigo1.tscn" id="3_1m2o7"]
 [ext_resource type="Texture2D" uid="uid://myblu33f7ls8" path="res://Arte/tile1.png" id="5_jg4y2"]
-[ext_resource type="Script" uid="uid://co8o0712n72ww" path="res://escenas/tiempolabel.gd" id="5_nia68"]
+[ext_resource type="Script" uid="uid://co8o0712n72ww" path="res://scripts/tiempolabel.gd" id="5_nia68"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nia68"]
 texture = ExtResource("5_jg4y2")
