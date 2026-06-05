@@ -71,7 +71,7 @@ func _apuntar_al_enemigo_cercano(delta):
 			to_local(objetivo.global_position)
 		]
 
-		laser.visible = true
+		laser.visible = false
 	else:
 		laser.visible = false
 

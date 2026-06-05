@@ -4,17 +4,29 @@ extends Area2D
 @export var marcadores: Array[Marker2D] = []
 @export var velocidad_base_rotacion: float = 4.0
 
+# VIDA
+@export var vida_maxima: int = 40
+
+var vida: int
+
 var velocidad_rotacion_actual: float = 0.0
 var tiempo_patron: float = 0.0
 var indice_actual: int = 0
 
+func _ready():
+	vida = vida_maxima
 
 func _process(delta):
 	# Movimiento entre marcadores
 	if marcadores.size() > 0:
 		var objetivo = marcadores[indice_actual]
+
 		if objetivo != null:
-			global_position = global_position.move_toward(objetivo.global_position, velocidad_movimiento * delta)
+			global_position = global_position.move_toward(
+				objetivo.global_position,
+				velocidad_movimiento * delta
+			)
+
 			if global_position.distance_to(objetivo.global_position) < 5.0:
 				indice_actual = (indice_actual + 1) % marcadores.size()
 
@@ -23,12 +35,41 @@ func _process(delta):
 	var ciclo = fmod(tiempo_patron, 8.0)
 
 	if ciclo < 3.0:
-		velocidad_rotacion_actual = lerp(velocidad_rotacion_actual, velocidad_base_rotacion, 5 * delta)
+		velocidad_rotacion_actual = lerp(
+			velocidad_rotacion_actual,
+			velocidad_base_rotacion,
+			5 * delta
+		)
 	elif ciclo < 4.2:
-		velocidad_rotacion_actual = lerp(velocidad_rotacion_actual, 0.0, 12 * delta)
+		velocidad_rotacion_actual = lerp(
+			velocidad_rotacion_actual,
+			0.0,
+			12 * delta
+		)
 	elif ciclo < 6.5:
-		velocidad_rotacion_actual = lerp(velocidad_rotacion_actual, -velocidad_base_rotacion * 1.8, 6 * delta)
+		velocidad_rotacion_actual = lerp(
+			velocidad_rotacion_actual,
+			-velocidad_base_rotacion * 1.8,
+			6 * delta
+		)
 	else:
-		velocidad_rotacion_actual = lerp(velocidad_rotacion_actual, 0.3, 4 * delta)
+		velocidad_rotacion_actual = lerp(
+			velocidad_rotacion_actual,
+			0.3,
+			4 * delta
+		)
 
 	rotation += velocidad_rotacion_actual * delta
+
+func recibir_dano(cantidad: int):
+	vida -= cantidad
+
+	print("Vida restante:", vida)
+
+	if vida <= 0:
+		morir()
+
+func morir():
+	GameManager.kills += 1
+	GameManager.puntos += 100
+	queue_free()

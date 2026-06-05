@@ -2,6 +2,7 @@ extends Area2D
 
 @export var velocidad := 1000.0
 @export var distancia_maxima := 1500.0
+@export var dano := 10
 
 var posicion_inicial := Vector2.ZERO
 var clavada := false
@@ -32,6 +33,10 @@ func _on_area_entered(area):
 func clavar(enemigo):
 	clavada = true
 	velocidad = 0
+	GameManager.puntos += 10
+	# Aplicar daño al enemigo
+	if enemigo.has_method("recibir_dano"):
+		enemigo.recibir_dano(dano)
 
 	add_to_group("flechas")
 
@@ -57,6 +62,7 @@ func destruir():
 
 func game_over():
 	print("GAME OVER")
+
 	var jugador = get_tree().get_first_node_in_group("jugador")
 
 	if jugador:
