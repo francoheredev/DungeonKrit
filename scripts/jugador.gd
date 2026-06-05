@@ -1,75 +1,48 @@
 extends CharacterBody2D
-
-@export var velocidad: float = 400.0
-@export var velocidad_apuntado: float = 10.0
-
+ 
+@export var velocidad_apuntado: float = 90.0  # Con esto ajustamos la velocidad con la que rota el pj
+@export var offset_disparo: Vector2 = Vector2(60, -120)  # De donde sale la bala
+ 
 var tocando: bool = false
-var inicio_toque: Vector2 = Vector2.ZERO
-var direccion: Vector2 = Vector2.ZERO
 var vivo: bool = true
-
-@onready var radio_vision = $radio_vision
-@onready var hitbox = $Hitbox
-@onready var laser = $Line2D
-
-
+var angulo_mira: float = 0.0
+var drag_x: float = 0.0
+ 
+@onready var sprite = $AnimatedSprite2D
+ 
+var proyectil_scene = preload("res://escenas/proyectil.tscn")
+ 
+ 
 func _input(event):
 	if not vivo: return
+ 
 	if event is InputEventScreenTouch:
-		if event.pressed:
-			tocando = true
-			inicio_toque = event.position
-		else:
-			tocando = false
-			direccion = Vector2.ZERO
+		tocando = event.pressed
+		if not event.pressed:
+			# Al soltar el dedo, dispara
+			_disparar()
+ 
 	elif event is InputEventScreenDrag and tocando:
-		direccion = (event.position - inicio_toque).normalized()
-
-
-func _physics_process(delta):
+		drag_x += event.relative.x
+ 
+ 
+func _physics_process(_delta):
 	if not vivo: return
-
-	velocity = direccion * velocidad if tocando else Vector2.ZERO
-	move_and_slide()
-
-	_apuntar_al_enemigo_cercano(delta)
-	_detectar_colision_enemigo()
-
-
-func _apuntar_al_enemigo_cercano(delta):
-	var areas = radio_vision.get_overlapping_areas()
-	var objetivo = null
-	var distancia_min = INF
-
-	for area in areas:
-		if area.is_in_group("enemigos"):
-			var d = global_position.distance_to(area.global_position)
-			if d < distancia_min:
-				distancia_min = d
-				objetivo = area
-
-	if objetivo != null:
-		var dir = objetivo.global_position - global_position
-		var angulo = dir.angle() + PI / 2
-		rotation = lerp_angle(rotation, angulo, velocidad_apuntado * delta)
-		laser.points = [Vector2.ZERO, to_local(objetivo.global_position)]
-		laser.visible = true
-	else:
-		laser.visible = false
-
-
-func _detectar_colision_enemigo():
-	for area in hitbox.get_overlapping_areas():
-		if area.is_in_group("enemigos"):
-			die()
-			return
-
-
-func die():
-	if not vivo: return
-	vivo = false
-	tocando = false
-	laser.visible = false
-	print("¡El jugador ha muerto!")
-	await get_tree().create_timer(1.0).timeout
-	get_tree().reload_current_scene()
+ 
+	if drag_x != 0.0:
+		var pantalla = get_viewport().get_visible_rect().size.x
+		var movimiento = (drag_x / pantalla) * deg_to_rad(velocidad_apuntado)
+		angulo_mira += movimiento  # Sin delta porque sino no se mueve nada
+		angulo_mira = clamp(angulo_mira, -PI/2, PI/2)
+		rotation = angulo_mira
+		drag_x = 0.0
+ 
+ 
+func _disparar():
+	var proyectil = proyectil_scene.instantiate()
+	# Lo agregamos al padre pa que no herede la rotación del jugador
+	get_parent().add_child(proyectil)
+	# Offset rotado según donde apunta el jugador
+	var pos_disparo = global_position + offset_disparo.rotated(angulo_mira)
+	proyectil.iniciar(pos_disparo, angulo_mira)
+ 

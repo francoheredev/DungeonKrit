@@ -192,20 +192,21 @@ scale = Vector2(0.99999994, 1.0005208)
 texture = ExtResource("1_1m2o7")
 
 [node name="Jugador" parent="." unique_id=986974813 instance=ExtResource("2_dnloj")]
+position = Vector2(517, 1681)
 collision_layer = 2
 
 [node name="EnemigoMomia" parent="." unique_id=92817530 node_paths=PackedStringArray("marcadores") instance=ExtResource("3_1m2o7")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(819, 638)
+position = Vector2(869, 471)
 collision_layer = 3
 marcadores = [NodePath("../Marcador1"), NodePath("../Marcador2")]
 
 [node name="Marcador2" type="Marker2D" parent="." unique_id=661312952]
-position = Vector2(925, 615)
+position = Vector2(869, 471)
 
 [node name="Marcador1" type="Marker2D" parent="." unique_id=16709129]
-position = Vector2(245, 1136)
+position = Vector2(214, 471)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=359767752]
 tile_set = SubResource("TileSet_u0vn5")

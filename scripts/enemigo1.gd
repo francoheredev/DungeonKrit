@@ -1,16 +1,18 @@
 extends Area2D
-
+ 
 @export var velocidad_movimiento: float = 200.0
 @export var marcadores: Array[Marker2D] = []
 @export var velocidad_base_rotacion: float = 4.0
+@export var vida_maxima: int = 5
 
-var velocidad_rotacion_actual: float = 0.0
-var tiempo_patron: float = 0.0
 var indice_actual: int = 0
-
-
+var vida: int = 0
+ 
+func _ready():
+	vida = vida_maxima
+ 
 func _process(delta):
-	# Movimiento entre marcadores
+	# Movimiento izquierda-derecha del enemigo
 	if marcadores.size() > 0:
 		var objetivo = marcadores[indice_actual]
 		if objetivo != null:
@@ -18,17 +20,11 @@ func _process(delta):
 			if global_position.distance_to(objetivo.global_position) < 5.0:
 				indice_actual = (indice_actual + 1) % marcadores.size()
 
-	# Rotación dinámica estilo Knife Hit
-	tiempo_patron += delta
-	var ciclo = fmod(tiempo_patron, 8.0)
-
-	if ciclo < 3.0:
-		velocidad_rotacion_actual = lerp(velocidad_rotacion_actual, velocidad_base_rotacion, 5 * delta)
-	elif ciclo < 4.2:
-		velocidad_rotacion_actual = lerp(velocidad_rotacion_actual, 0.0, 12 * delta)
-	elif ciclo < 6.5:
-		velocidad_rotacion_actual = lerp(velocidad_rotacion_actual, -velocidad_base_rotacion * 1.8, 6 * delta)
-	else:
-		velocidad_rotacion_actual = lerp(velocidad_rotacion_actual, 0.3, 4 * delta)
-
-	rotation += velocidad_rotacion_actual * delta
+	# Gira constantemente (you spin me around baby around)
+	rotation += velocidad_base_rotacion * delta / 2
+ 
+func recibir_daño(cantidad: int):
+	vida -= cantidad
+	print("Enemigo vida: ", vida)
+	if vida <= 0:
+		queue_free()
