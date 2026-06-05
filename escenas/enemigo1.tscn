@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxtjn2w1ox14j"]
 
-[ext_resource type="Script" uid="uid://c0318ajfgnhw4" path="res://scripts/area_2d.gd" id="1_ps4le"]
+[ext_resource type="Script" uid="uid://c0318ajfgnhw4" path="res://scripts/enemigo1.gd" id="1_ps4le"]
 [ext_resource type="Texture2D" uid="uid://c703okgeu4ib1" path="res://Arte/enem1.png" id="2_ps4le"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t28q1"]

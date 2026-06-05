@@ -1,102 +1,75 @@
 extends CharacterBody2D
 
 @export var velocidad: float = 400.0
-@export var velocidad_apuntado: float = 10.0 # que tan rápido apunta
+@export var velocidad_apuntado: float = 10.0
 
-var tocando: bool = false # o tocas o no tocas
+var tocando: bool = false
 var inicio_toque: Vector2 = Vector2.ZERO
 var direccion: Vector2 = Vector2.ZERO
 var vivo: bool = true
 
 @onready var radio_vision = $radio_vision
-@onready var Hitbox = $Hitbox
-@onready var laser = $Line2D 
+@onready var hitbox = $Hitbox
+@onready var laser = $Line2D
+
+
 func _input(event):
-	# esto detecta el primer toque y soltar
 	if not vivo: return
 	if event is InputEventScreenTouch:
-		if event.pressed: # dedo en la pantalla
+		if event.pressed:
 			tocando = true
 			inicio_toque = event.position
-		else: # no tocamos
+		else:
 			tocando = false
 			direccion = Vector2.ZERO
-			
-	# arrastrando el dedo
 	elif event is InputEventScreenDrag and tocando:
-		var toque_actual = event.position
-		# dirección
-		direccion = (toque_actual - inicio_toque).normalized()
+		direccion = (event.position - inicio_toque).normalized()
 
 
 func _physics_process(delta):
-	# 1. CONTROL DE MOVIMIENTO
-	if not vivo: return 
-	if tocando:
-		velocity = direccion * velocidad
-	else:
-		velocity = Vector2.ZERO # si no tocamos, el personaje no se mueve
-		
+	if not vivo: return
+
+	velocity = direccion * velocidad if tocando else Vector2.ZERO
 	move_and_slide()
-	_detectar_enemigo(delta)
-	# 2. SISTEMA DE VISIÓN Y APUNTADO
-	apuntar_al_enemigo_cercano(delta)
-	
+
+	_apuntar_al_enemigo_cercano(delta)
+	_detectar_colision_enemigo()
 
 
-func apuntar_al_enemigo_cercano(delta):
-	# busca SOLO nodos de tipo Area2D
-	var areas_dentro = radio_vision.get_overlapping_areas()
-	
-	var enemigo_objetivo = null #no hay enemigo objetivo
-	var distancia_minima = INF 
-	#if areas_dentro.size() > 0:
-		#print("¡Círculo tocando algo! Total de áreas: ", areas_dentro.size())
-	for area in areas_dentro:
-		# Verificamos si el Area2D pertenece al grupo de los enemigos
+func _apuntar_al_enemigo_cercano(delta):
+	var areas = radio_vision.get_overlapping_areas()
+	var objetivo = null
+	var distancia_min = INF
+
+	for area in areas:
 		if area.is_in_group("enemigos"):
-			var distancia_actual = global_position.distance_to(area.global_position)
-			
-			if distancia_actual < distancia_minima:
-				distancia_minima = distancia_actual
-				enemigo_objetivo = area
-				
-	# Si encontramos el área enemiga más cercana, apuntamos y encendemos el láser
-	if enemigo_objetivo != null:
-		var direccion_hacia_enemigo = enemigo_objetivo.global_position - global_position
-		var angulo_objetivo = direccion_hacia_enemigo.angle() + PI/2
-		rotation = lerp_angle(rotation, angulo_objetivo, velocidad_apuntado * delta)
-		
-		var posicion_local_enemigo = to_local(enemigo_objetivo.global_position)
-		laser.points = [Vector2.ZERO, posicion_local_enemigo]
+			var d = global_position.distance_to(area.global_position)
+			if d < distancia_min:
+				distancia_min = d
+				objetivo = area
+
+	if objetivo != null:
+		var dir = objetivo.global_position - global_position
+		var angulo = dir.angle() + PI / 2
+		rotation = lerp_angle(rotation, angulo, velocidad_apuntado * delta)
+		laser.points = [Vector2.ZERO, to_local(objetivo.global_position)]
 		laser.visible = true
 	else:
-		# Si no hay ningún Area2D del grupo "enemigos", apagamos el indicador
 		laser.visible = false
+
+
+func _detectar_colision_enemigo():
+	for area in hitbox.get_overlapping_areas():
+		if area.is_in_group("enemigos"):
+			die()
+			return
+
+
 func die():
-	if not vivo: return # no se ejecuta varias veces si ya murió
+	if not vivo: return
 	vivo = false
 	tocando = false
 	laser.visible = false
 	print("¡El jugador ha muerto!")
-	
-	# espera 1 segundo y reinicia la escena actual
 	await get_tree().create_timer(1.0).timeout
 	get_tree().reload_current_scene()
-	
-func _on_area_entered(area: Area2D) -> void:
-	print("player")
-#func _on_area_entered(area: Area2D):
-	# Verifica si el área o su padre pertenecen al grupo "enemigos"
-	print("aaaa")
-	if area.is_in_group("enemigos") or area.get_parent().is_in_group("enemigos"):
-		print("💥 ¡El jugador está dentro del área de un enemigo! (Nodo detectado: ", area.name, ")")
-		# die() <-- Comentado para que por ahora NO muera, solo deje el mensaje
-		
-func _detectar_enemigo(delta):
-	var areas_dentro = Hitbox.get_overlapping_areas()
-	for area in areas_dentro:
-		# Verificamos si el Area2D pertenece al grupo de los enemigos
-		if area.is_in_group("enemigos"):
-			die ()
-	
