@@ -3,11 +3,15 @@
 [ext_resource type="Script" uid="uid://c0318ajfgnhw4" path="res://scripts/enemigo1.gd" id="1_ps4le"]
 [ext_resource type="Texture2D" uid="uid://c703okgeu4ib1" path="res://Arte/enem1.png" id="2_ps4le"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t28q1"]
+atlas = ExtResource("2_ps4le")
+region = Rect2(0, 0, 300, 250)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_1dqpx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ps4le")
+"texture": SubResource("AtlasTexture_t28q1")
 }],
 "loop": true,
 "name": &"default",
@@ -15,9 +19,9 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ps4le"]
-radius = 149.00336
+radius = 102.0
 
-[node name="Enemigo1" type="Area2D" unique_id=92817530 groups=["enemigos"]]
+[node name="EnemigoMomia" type="Area2D" unique_id=92817530 groups=["enemigos"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ps4le")

@@ -27,14 +27,6 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Dungeon Krit"
 
-[file_customization]
-
-folder_colors={
-"res://Arte/": "purple",
-"res://escenas/": "blue",
-"res://scripts/": "green"
-}
-
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
