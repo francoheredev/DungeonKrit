@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djhne4wwh3nx3" path="res://scripts/jugador.gd" id="1_jpodt"]
 [ext_resource type="Texture2D" uid="uid://bqnraiygqw2hp" path="res://Arte/pj1.png" id="2_jpodt"]
+[ext_resource type="PackedScene" uid="uid://c0fyf146f477b" path="res://escenas/proyectil.tscn" id="2_njcx7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njcx7"]
 atlas = ExtResource("2_jpodt")
@@ -28,11 +29,12 @@ radius = 473.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpodt"]
 size = Vector2(174, 48)
 
-[node name="Jugador" type="CharacterBody2D" unique_id=986974813]
+[node name="Jugador" type="CharacterBody2D" unique_id=986974813 groups=["jugador"]]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(506, 1685)
 script = ExtResource("1_jpodt")
+escena_proyectil = ExtResource("2_njcx7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=803884170]
 position = Vector2(28, -32)

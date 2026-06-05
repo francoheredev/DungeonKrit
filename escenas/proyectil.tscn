@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c0fyf146f477b"]
+
+[ext_resource type="Texture2D" uid="uid://cyf6huchuvptr" path="res://Arte/bala1.png" id="1_2mwwa"]
+[ext_resource type="Script" uid="uid://bsapweo5tjjid" path="res://escenas/proyectil.gd" id="1_y2gxt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mwwa"]
+size = Vector2(12, 147)
+
+[node name="Area2D" type="Area2D" unique_id=2116881690]
+script = ExtResource("1_y2gxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1612914492]
+texture = ExtResource("1_2mwwa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=361448176]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_2mwwa")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
