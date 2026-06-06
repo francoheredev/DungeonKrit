@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bxtjn2w1ox14j" path="res://escenas/enemigo1.tscn" id="3_1m2o7"]
 [ext_resource type="Texture2D" uid="uid://myblu33f7ls8" path="res://Arte/tile1.png" id="5_jg4y2"]
 [ext_resource type="Script" uid="uid://co8o0712n72ww" path="res://scripts/tiempolabel.gd" id="5_nia68"]
+[ext_resource type="Script" uid="uid://cswqwpipblbwr" path="res://escenas/menu_pausa.gd" id="6_nia68"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nia68"]
 texture = ExtResource("5_jg4y2")
@@ -265,11 +266,51 @@ offset_bottom = 74.0
 text = "Krits: 0"
 label_settings = SubResource("LabelSettings_sjk1h")
 
-[node name="SalirButton" type="Button" parent="." unique_id=731422722]
-offset_left = 903.0
-offset_top = 1818.0
-offset_right = 1061.0
-offset_bottom = 1886.0
-text = "Salir"
+[node name="PausaButton" type="Button" parent="CanvasLayer" unique_id=1243000211]
+offset_left = 966.0
+offset_top = 1800.0
+offset_right = 1048.0
+offset_bottom = 1883.0
+text = "II"
+
+[node name="MenuPausa" type="Control" parent="CanvasLayer" unique_id=1466173383]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_nia68")
+
+[node name="ContinuarButton" type="Button" parent="CanvasLayer/MenuPausa" unique_id=1503077100]
+process_mode = 2
+layout_mode = 0
+offset_left = 365.0
+offset_top = 670.0
+offset_right = 685.0
+offset_bottom = 844.0
+text = "CONTINUAR"
+
+[node name="ReiniciarButton" type="Button" parent="CanvasLayer/MenuPausa" unique_id=2023191131]
+process_mode = 2
+layout_mode = 0
+offset_left = 365.0
+offset_top = 882.0
+offset_right = 682.0
+offset_bottom = 1058.0
+text = "REINICIAR"
+
+[node name="MenuButton" type="Button" parent="CanvasLayer/MenuPausa" unique_id=1495068139]
+process_mode = 2
+layout_mode = 0
+offset_left = 366.0
+offset_top = 1115.0
+offset_right = 684.0
+offset_bottom = 1293.0
+text = "MENÚ"
 
 [connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer" method="_on_tiempo_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/PausaButton" to="CanvasLayer" method="_on_pausa_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuPausa/ContinuarButton" to="CanvasLayer/MenuPausa" method="_on_continuar_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuPausa/ReiniciarButton" to="CanvasLayer/MenuPausa" method="_on_reiniciar_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuPausa/MenuButton" to="CanvasLayer/MenuPausa" method="_on_menu_button_pressed"]

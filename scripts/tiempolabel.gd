@@ -18,6 +18,11 @@ func _process(_delta):
 	kills_label.text = "Kills: " + str(GameManager.kills)
 	krits_label.text = "Krits: " + str(GameManager.krits)
 
+func _on_pausa_button_pressed():
+	get_tree().paused = true
+	$MenuPausa.visible = true
+	$PausaButton.visible = false
+
 func _on_tiempo_timer_timeout():
 	tiempo += 1
 
