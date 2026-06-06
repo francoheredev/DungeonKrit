@@ -189,18 +189,19 @@ sources/0 = SubResource("TileSetAtlasSource_nia68")
 font_size = 83
 
 [sub_resource type="LabelSettings" id="LabelSettings_nia68"]
-font_size = 30
+font_size = 37
 
 [sub_resource type="LabelSettings" id="LabelSettings_u0vn5"]
-font_size = 30
+font_size = 37
 
 [sub_resource type="LabelSettings" id="LabelSettings_sjk1h"]
-font_size = 30
+font_size = 37
 
 [node name="gameplay" type="Node2D" unique_id=1782014250]
 position = Vector2(-1, 0)
 
 [node name="fondo" type="Sprite2D" parent="." unique_id=223556045]
+z_index = -2
 position = Vector2(540, 960.49994)
 scale = Vector2(0.99999994, 1.0005208)
 texture = ExtResource("1_1m2o7")
@@ -241,27 +242,34 @@ label_settings = SubResource("LabelSettings_jg4y2")
 autostart = true
 
 [node name="Kills" type="Label" parent="CanvasLayer" unique_id=2016916720]
-offset_left = 893.0
-offset_top = 101.0
-offset_right = 985.0
-offset_bottom = 143.0
+offset_left = 841.0
+offset_top = 132.0
+offset_right = 955.0
+offset_bottom = 183.0
 text = "Kills: 0"
 label_settings = SubResource("LabelSettings_nia68")
 
 [node name="puntos" type="Label" parent="CanvasLayer" unique_id=1611199341]
-offset_left = 893.0
-offset_top = 60.0
-offset_right = 1028.0
-offset_bottom = 102.0
+offset_left = 841.0
+offset_top = 79.0
+offset_right = 1007.0
+offset_bottom = 130.0
 text = "Puntos: 0"
 label_settings = SubResource("LabelSettings_u0vn5")
 
 [node name="Krits" type="Label" parent="CanvasLayer" unique_id=693115765]
-offset_left = 893.0
+offset_left = 842.0
 offset_top = 23.0
-offset_right = 993.0
-offset_bottom = 65.0
+offset_right = 966.0
+offset_bottom = 74.0
 text = "Krits: 0"
 label_settings = SubResource("LabelSettings_sjk1h")
+
+[node name="SalirButton" type="Button" parent="." unique_id=731422722]
+offset_left = 903.0
+offset_top = 1818.0
+offset_right = 1061.0
+offset_bottom = 1886.0
+text = "Salir"
 
 [connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer" method="_on_tiempo_timer_timeout"]

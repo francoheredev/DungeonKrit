@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cagl0d1jqvoc1"]
 
-[ext_resource type="Script" uid="uid://i80ukals0um4" path="res://escenas/critico.gd" id="1_ah6s4"]
+[ext_resource type="Script" uid="uid://i80ukals0um4" path="res://scripts/critico.gd" id="1_ah6s4"]
 [ext_resource type="Texture2D" uid="uid://bqm7mgord7grr" path="res://Arte/enemigoms dungeon krit png.png" id="1_ve8yo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ah6s4"]
@@ -28,7 +28,7 @@ script = ExtResource("1_ah6s4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1458163379]
 position = Vector2(14, -4)
 sprite_frames = SubResource("SpriteFrames_38qqs")
-frame_progress = 0.13543688
+frame_progress = 0.74988323
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=128010]
 position = Vector2(1, 1)

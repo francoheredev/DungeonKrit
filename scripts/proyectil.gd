@@ -77,9 +77,9 @@ func golpe_critico(critico):
 	if enemigo.has_method("recibir_dano"):
 		enemigo.recibir_dano(30)
 
-	GameManager.krits += 1
+	GameManager.agregar_krit()
 	GameManager.puntos += 50
-
+	print("Krits totales: ", GameManager.krits_totales)
 	critico.queue_free()
 
 	add_to_group("flechas")

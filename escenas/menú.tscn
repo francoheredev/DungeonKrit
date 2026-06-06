@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://clmp2ttmudw0j"]
+
+[ext_resource type="Script" uid="uid://ewfwj2xdyo7b" path="res://scripts/menú.gd" id="1_65sl1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lehou"]
+font_size = 135
+
+[sub_resource type="LabelSettings" id="LabelSettings_65sl1"]
+font_size = 59
+
+[node name="Menú" type="Control" unique_id=266787158]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_65sl1")
+
+[node name="Label" type="Label" parent="." unique_id=1391198492]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 414.0
+offset_right = 1002.0
+offset_bottom = 599.0
+text = "Dungeon Krit"
+label_settings = SubResource("LabelSettings_lehou")
+
+[node name="Label2" type="Label" parent="." unique_id=1185061341]
+layout_mode = 0
+offset_left = 801.0
+offset_top = 69.0
+offset_right = 998.0
+offset_bottom = 151.0
+text = "Krits: 0"
+label_settings = SubResource("LabelSettings_65sl1")
+
+[node name="JugarButton" type="Button" parent="." unique_id=966769675]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 789.0
+offset_right = 883.0
+offset_bottom = 959.0
+text = "Jugar"
+
+[node name="TiendaButton" type="Button" parent="." unique_id=1669798714]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 1064.0
+offset_right = 879.0
+offset_bottom = 1247.0
+text = "Tienda"
+
+[node name="SalirButton" type="Button" parent="." unique_id=800159562]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 1346.0
+offset_right = 890.0
+offset_bottom = 1546.0
+text = "Salir"
+
+[connection signal="pressed" from="JugarButton" to="." method="_on_jugar_button_pressed"]
+[connection signal="pressed" from="TiendaButton" to="." method="_on_tienda_button_pressed"]
+[connection signal="pressed" from="SalirButton" to="." method="_on_salir_button_pressed"]
