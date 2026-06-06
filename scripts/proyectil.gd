@@ -24,12 +24,13 @@ func _process(delta):
 func _on_area_entered(area):
 	if clavada:
 		return
- 
-	# choca con otra flecha clavada → se destruye, sin game over
+
 	if area.is_in_group("flechas"):
-		destruir()
-		return
- 
+		game_over()
+
+	elif area.is_in_group("criticos"):
+		golpe_critico(area)
+
 	elif area.is_in_group("enemigos"):
 		clavar(area)
  
@@ -59,6 +60,43 @@ func clavar(enemigo):
 	if jugador:
 		jugador.puede_disparar = true
  
+func game_over():
+	print("GAME OVER")
+
+	var jugador = get_tree().get_first_node_in_group("jugador")
+
+	if jugador:
+		jugador.die()
+
+func golpe_critico(critico):
+	var enemigo = critico.get_parent()
+
+	clavada = true
+	velocidad = 0
+
+	if enemigo.has_method("recibir_dano"):
+		enemigo.recibir_dano(30)
+
+	GameManager.krits += 1
+	GameManager.puntos += 50
+
+	critico.queue_free()
+
+	add_to_group("flechas")
+
+	var pos = global_position
+	var rot = global_rotation
+
+	reparent(enemigo)
+
+	global_position = pos
+	global_rotation = rot
+
+	var jugador = get_tree().get_first_node_in_group("jugador")
+
+	if jugador:
+		jugador.puede_disparar = true
+
 func destruir():
 	var jugador = get_tree().get_first_node_in_group("jugador")
 	if jugador:

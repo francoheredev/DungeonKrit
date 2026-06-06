@@ -198,6 +198,7 @@ font_size = 30
 font_size = 30
 
 [node name="gameplay" type="Node2D" unique_id=1782014250]
+position = Vector2(-1, 0)
 
 [node name="fondo" type="Sprite2D" parent="." unique_id=223556045]
 position = Vector2(540, 960.49994)

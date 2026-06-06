@@ -3,6 +3,9 @@ extends Area2D
 @export var velocidad_movimiento: float = 200.0
 @export var marcadores: Array[Marker2D] = []
 @export var velocidad_base_rotacion: float = 4.0
+@export var escena_critico: PackedScene
+@export var cantidad_criticos := 2
+@export var radio_criticos := 100.0
 
 # VIDA
 @export var vida_maxima: int = 40
@@ -15,7 +18,17 @@ var indice_actual: int = 0
 
 func _ready():
 	vida = vida_maxima
+	generar_criticos()
 
+func generar_criticos():
+	for i in cantidad_criticos:
+		var critico = escena_critico.instantiate()
+
+		add_child(critico)
+
+		var angulo = randf_range(0, TAU)
+
+		critico.position = Vector2.RIGHT.rotated(angulo) * radio_criticos
 func _process(delta):
 	# Movimiento entre marcadores
 	if marcadores.size() > 0:
