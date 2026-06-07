@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://c0318ajfgnhw4" path="res://scripts/enemigo1.gd" id="1_ps4le"]
 [ext_resource type="PackedScene" uid="uid://cagl0d1jqvoc1" path="res://escenas/critico.tscn" id="2_3sbly"]
 [ext_resource type="Texture2D" uid="uid://c703okgeu4ib1" path="res://Arte/enem1.png" id="2_ps4le"]
+[ext_resource type="PackedScene" uid="uid://b6kjwqweq4y5o" path="res://escenas/muerte_enemigo.tscn" id="3_lafqi"]
+[ext_resource type="PackedScene" uid="uid://dwnq87fja476r" path="res://escenas/muerte_enemigo_critico.tscn" id="4_kst81"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t28q1"]
 atlas = ExtResource("2_ps4le")
@@ -27,6 +29,8 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ps4le")
 escena_critico = ExtResource("2_3sbly")
+escena_muerte = ExtResource("3_lafqi")
+escena_muerte_critica = ExtResource("4_kst81")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1289865645]
 sprite_frames = SubResource("SpriteFrames_1dqpx")

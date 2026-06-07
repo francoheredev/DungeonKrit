@@ -1,3 +1,23 @@
 [gd_scene format=3 uid="uid://c1bn2ma8cstw5"]
 
-[node name="impacto_critico" type="GPUParticles2D" unique_id=423871221]
+[ext_resource type="Script" uid="uid://014c8tctn5lk" path="res://scripts/impacto.gd" id="1_n71tc"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yapg1"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 5.0
+
+[node name="impacto" type="GPUParticles2D" unique_id=147556803]
+modulate = Color(0.7693006, 3.2488256e-06, 5.7756904e-07, 1)
+self_modulate = Color(0.7693006, 3.2488256e-06, 5.7756904e-07, 1)
+scale = Vector2(3, 3)
+emitting = false
+amount = 40
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_yapg1")
+script = ExtResource("1_n71tc")

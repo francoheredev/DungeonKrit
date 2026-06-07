@@ -5,6 +5,7 @@ extends Area2D
 @export var dano := 10
 @export var offset_entierro := 30.0   # cuántos px se entierra en el enemigo
 @export var escena_impacto: PackedScene
+@export var escena_impacto_critico: PackedScene
 var posicion_inicial := Vector2.ZERO
 var clavada := false
 var direccion := Vector2.ZERO
@@ -36,28 +37,32 @@ func _on_area_entered(area):
  
 func clavar(enemigo):
 	clavada = true
-	crear_impacto(enemigo)
 	velocidad = 0
 	GameManager.puntos += 10
- 
+
 	if enemigo.has_method("recibir_dano"):
-		enemigo.recibir_dano(dano)
+		enemigo.recibir_dano(dano, false)
 		enemigo.shake(15.0)
- 
+
 	# enterrar la flecha hacia el centro del enemigo
 	global_position += direccion * offset_entierro
- 
+
+	# crear partículas DESPUÉS de enterrarla
+	crear_impacto(enemigo)
+
 	# apuntar al centro del enemigo
 	var dir_al_centro = enemigo.global_position - global_position
 	var angulo_al_centro = dir_al_centro.angle() + PI / 2
- 
+
 	var pos = global_position
+
 	reparent(enemigo)
+
 	global_position = pos
-	global_rotation = angulo_al_centro  # rotación global, no relativa
- 
+	global_rotation = angulo_al_centro
+
 	add_to_group("flechas")
- 
+
 	var jugador = get_tree().get_first_node_in_group("jugador")
 	if jugador:
 		jugador.puede_disparar = true
@@ -72,12 +77,12 @@ func game_over():
 
 func golpe_critico(critico):
 	var enemigo = critico.get_parent()
-	crear_impacto(enemigo)
+
 	clavada = true
 	velocidad = 0
 
 	if enemigo.has_method("recibir_dano"):
-		enemigo.recibir_dano(30)
+		enemigo.recibir_dano(30, true)
 		enemigo.shake(15.0)
 
 	GameManager.agregar_krit()
@@ -87,13 +92,13 @@ func golpe_critico(critico):
 
 	critico.queue_free()
 
-	# ENTERRAR LA FLECHA
+	# enterrar la flecha
 	global_position += direccion * offset_entierro
+
+	# crear partículas DESPUÉS de enterrarla
+	crear_impacto_critico(enemigo)
 
 	add_to_group("flechas")
-
-# enterrar la flecha hacia el centro del enemigo
-	global_position += direccion * offset_entierro
 
 	# apuntar al centro del enemigo
 	var dir_al_centro = enemigo.global_position - global_position
@@ -107,7 +112,6 @@ func golpe_critico(critico):
 	global_rotation = angulo_al_centro
 
 	var jugador = get_tree().get_first_node_in_group("jugador")
-
 	if jugador:
 		jugador.puede_disparar = true
 func crear_impacto(enemigo):
@@ -118,9 +122,22 @@ func crear_impacto(enemigo):
 
 	enemigo.add_child(impacto)
 
-	impacto.global_position = global_position
+	impacto.position = enemigo.to_local(global_position)
 
 	impacto.emitting = true
+
+
+func crear_impacto_critico(enemigo):
+	if escena_impacto_critico == null:
+		return
+
+	var impacto_critico = escena_impacto_critico.instantiate()
+
+	enemigo.add_child(impacto_critico)
+
+	impacto_critico.position = enemigo.to_local(global_position)
+
+	impacto_critico.emitting = true
 
 func destruir():
 	var jugador = get_tree().get_first_node_in_group("jugador")

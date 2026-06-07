@@ -6,8 +6,8 @@ extends Area2D
 @export var escena_critico: PackedScene
 @export var cantidad_criticos := 2
 @export var radio_criticos := 105
-
-
+@export var escena_muerte: PackedScene
+@export var escena_muerte_critica: PackedScene
 # VIDA
 @export var vida_maxima: int = 40
 
@@ -86,17 +86,41 @@ func _process(delta):
 func shake(intensidad := 8.0):
 	shake_strength = intensidad
 
-func recibir_dano(cantidad: int):
+func recibir_dano(cantidad: int, es_critico := false):
 	vida -= cantidad
 
-	shake(8.0)
-
-	print("Vida restante:", vida)
-
 	if vida <= 0:
-		morir()
+		morir(es_critico)
 
-func morir():
+
+func morir(es_critico := false):
 	GameManager.kills += 1
 	GameManager.puntos += 100
+
+	if es_critico:
+		crear_efecto_muerte_critica()
+	else:
+		crear_efecto_muerte()
+
 	queue_free()
+	
+
+func crear_efecto_muerte():
+	if escena_muerte == null:
+		return
+
+	var efecto = escena_muerte.instantiate()
+
+	get_parent().add_child(efecto)
+
+	efecto.global_position = global_position
+
+func crear_efecto_muerte_critica():
+	if escena_muerte_critica == null:
+		return
+
+	var efecto = escena_muerte_critica.instantiate()
+
+	get_parent().add_child(efecto)
+
+	efecto.global_position = global_position

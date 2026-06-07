@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var velocidad: float = 400.0
+@export var velocidad: float = 500
 @export var velocidad_apuntado: float = 10.0
 @export var escena_proyectil: PackedScene
 

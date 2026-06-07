@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0i6x6ulywhov"]
 
-[ext_resource type="Script" uid="uid://014c8tctn5lk" path="res://escenas/impacto.gd" id="1_oixxv"]
+[ext_resource type="Script" uid="uid://014c8tctn5lk" path="res://scripts/impacto.gd" id="1_oixxv"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yapg1"]
 particle_flag_disable_z = true
