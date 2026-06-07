@@ -5,13 +5,14 @@ extends Area2D
 @export var velocidad_base_rotacion: float = 4.0
 @export var escena_critico: PackedScene
 @export var cantidad_criticos := 2
-@export var radio_criticos := 100.0
+@export var radio_criticos := 105
+
 
 # VIDA
 @export var vida_maxima: int = 40
 
 var vida: int
-
+var shake_strength := 0.0
 var velocidad_rotacion_actual: float = 0.0
 var tiempo_patron: float = 0.0
 var indice_actual: int = 0
@@ -73,9 +74,22 @@ func _process(delta):
 		)
 
 	rotation += velocidad_rotacion_actual * delta
+# Shake visual
+	if shake_strength > 0:
+		global_position += Vector2(
+			randf_range(-shake_strength, shake_strength),
+			randf_range(-shake_strength, shake_strength)
+		)
+
+		shake_strength = lerp(shake_strength, 0.0, 20.0 * delta)
+		
+func shake(intensidad := 8.0):
+	shake_strength = intensidad
 
 func recibir_dano(cantidad: int):
 	vida -= cantidad
+
+	shake(8.0)
 
 	print("Vida restante:", vida)
 

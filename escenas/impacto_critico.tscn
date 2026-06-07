@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://c1bn2ma8cstw5"]
+
+[node name="impacto_critico" type="GPUParticles2D" unique_id=423871221]

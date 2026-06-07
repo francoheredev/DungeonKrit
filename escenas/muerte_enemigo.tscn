@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b6kjwqweq4y5o"]
+
+[node name="muerte_enemigo" type="GPUParticles2D" unique_id=1534493515]

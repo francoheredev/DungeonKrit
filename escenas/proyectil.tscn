@@ -2,13 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://cyf6huchuvptr" path="res://Arte/bala1.png" id="1_2mwwa"]
 [ext_resource type="Script" uid="uid://bsapweo5tjjid" path="res://scripts/proyectil.gd" id="1_y2gxt"]
+[ext_resource type="PackedScene" uid="uid://c0i6x6ulywhov" path="res://escenas/impacto.tscn" id="2_cxetq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mwwa"]
-size = Vector2(12, 147)
+size = Vector2(26, 147)
 
 [node name="Area2D" type="Area2D" unique_id=2116881690]
 z_index = -1
 script = ExtResource("1_y2gxt")
+escena_impacto = ExtResource("2_cxetq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1612914492]
 texture = ExtResource("1_2mwwa")

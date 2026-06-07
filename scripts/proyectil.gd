@@ -4,11 +4,10 @@ extends Area2D
 @export var distancia_maxima := 1500.0
 @export var dano := 10
 @export var offset_entierro := 30.0   # cuántos px se entierra en el enemigo
- 
+@export var escena_impacto: PackedScene
 var posicion_inicial := Vector2.ZERO
 var clavada := false
 var direccion := Vector2.ZERO
- 
 func _ready():
 	posicion_inicial = global_position
  
@@ -26,6 +25,7 @@ func _on_area_entered(area):
 		return
 
 	if area.is_in_group("flechas"):
+		destruir()
 		game_over()
 
 	elif area.is_in_group("criticos"):
@@ -36,11 +36,13 @@ func _on_area_entered(area):
  
 func clavar(enemigo):
 	clavada = true
+	crear_impacto(enemigo)
 	velocidad = 0
 	GameManager.puntos += 10
  
 	if enemigo.has_method("recibir_dano"):
 		enemigo.recibir_dano(dano)
+		enemigo.shake(15.0)
  
 	# enterrar la flecha hacia el centro del enemigo
 	global_position += direccion * offset_entierro
@@ -70,32 +72,55 @@ func game_over():
 
 func golpe_critico(critico):
 	var enemigo = critico.get_parent()
-
+	crear_impacto(enemigo)
 	clavada = true
 	velocidad = 0
 
 	if enemigo.has_method("recibir_dano"):
 		enemigo.recibir_dano(30)
+		enemigo.shake(15.0)
 
 	GameManager.agregar_krit()
 	GameManager.puntos += 50
+
 	print("Krits totales: ", GameManager.krits_totales)
+
 	critico.queue_free()
+
+	# ENTERRAR LA FLECHA
+	global_position += direccion * offset_entierro
 
 	add_to_group("flechas")
 
+# enterrar la flecha hacia el centro del enemigo
+	global_position += direccion * offset_entierro
+
+	# apuntar al centro del enemigo
+	var dir_al_centro = enemigo.global_position - global_position
+	var angulo_al_centro = dir_al_centro.angle() + PI / 2
+
 	var pos = global_position
-	var rot = global_rotation
 
 	reparent(enemigo)
 
 	global_position = pos
-	global_rotation = rot
+	global_rotation = angulo_al_centro
 
 	var jugador = get_tree().get_first_node_in_group("jugador")
 
 	if jugador:
 		jugador.puede_disparar = true
+func crear_impacto(enemigo):
+	if escena_impacto == null:
+		return
+
+	var impacto = escena_impacto.instantiate()
+
+	enemigo.add_child(impacto)
+
+	impacto.global_position = global_position
+
+	impacto.emitting = true
 
 func destruir():
 	var jugador = get_tree().get_first_node_in_group("jugador")
