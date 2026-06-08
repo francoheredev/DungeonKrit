@@ -214,11 +214,12 @@ collision_layer = 2
 [node name="EnemigoMomia" parent="." unique_id=92817530 node_paths=PackedStringArray("marcadores") instance=ExtResource("3_1m2o7")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(819, 638)
+position = Vector2(946, 742)
 collision_layer = 3
 marcadores = [NodePath("../M2 enemigo 0"), NodePath("../M1 enemigo 0")]
 
 [node name="EnemigoMomia2" parent="." unique_id=1793233595 node_paths=PackedStringArray("marcadores") instance=ExtResource("3_1m2o7")]
+position = Vector2(162, 141)
 collision_layer = 3
 script = ExtResource("7_u0vn5")
 marcadores = [NodePath("../M1 enemigo 1"), NodePath("../M2 enemigo 2")]
