@@ -4,6 +4,7 @@ extends Area2D
 @export var distancia_maxima := 1500.0
 @export var dano := 10
 @export var offset_entierro := 30.0   # cuántos px se entierra en el enemigo
+@export var offset_entierro_critico := 70.0
 @export var escena_impacto: PackedScene
 @export var escena_impacto_critico: PackedScene
 var posicion_inicial := Vector2.ZERO
@@ -93,7 +94,7 @@ func golpe_critico(critico):
 	critico.queue_free()
 
 	# enterrar la flecha
-	global_position += direccion * offset_entierro
+	global_position += direccion * offset_entierro_critico
 
 	# crear partículas DESPUÉS de enterrarla
 	crear_impacto_critico(enemigo)

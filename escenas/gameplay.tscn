@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://myblu33f7ls8" path="res://Arte/tile1.png" id="5_jg4y2"]
 [ext_resource type="Script" uid="uid://co8o0712n72ww" path="res://scripts/tiempolabel.gd" id="5_nia68"]
 [ext_resource type="Script" uid="uid://cswqwpipblbwr" path="res://scripts/menu_pausa.gd" id="6_nia68"]
+[ext_resource type="Script" uid="uid://b642207o7tp6e" path="res://escenas/enemigo_2.gd" id="7_u0vn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nia68"]
 texture = ExtResource("5_jg4y2")
@@ -215,12 +216,17 @@ light_mask = 2
 visibility_layer = 2
 position = Vector2(819, 638)
 collision_layer = 3
-marcadores = [NodePath("../Marcador1"), NodePath("../Marcador2")]
+marcadores = [NodePath("../M2 enemigo 0"), NodePath("../M1 enemigo 0")]
 
-[node name="Marcador2" type="Marker2D" parent="." unique_id=661312952]
+[node name="EnemigoMomia2" parent="." unique_id=1793233595 node_paths=PackedStringArray("marcadores") instance=ExtResource("3_1m2o7")]
+collision_layer = 3
+script = ExtResource("7_u0vn5")
+marcadores = [NodePath("../M1 enemigo 1"), NodePath("../M2 enemigo 2")]
+
+[node name="M1 enemigo 0" type="Marker2D" parent="." unique_id=661312952]
 position = Vector2(925, 615)
 
-[node name="Marcador1" type="Marker2D" parent="." unique_id=16709129]
+[node name="M2 enemigo 0" type="Marker2D" parent="." unique_id=16709129]
 position = Vector2(245, 1136)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=359767752]
@@ -308,6 +314,12 @@ offset_top = 1115.0
 offset_right = 684.0
 offset_bottom = 1293.0
 text = "MENÚ"
+
+[node name="M1 enemigo 1" type="Marker2D" parent="." unique_id=1473005288]
+position = Vector2(141, 386)
+
+[node name="M2 enemigo 2" type="Marker2D" parent="." unique_id=224245625]
+position = Vector2(911, 355)
 
 [connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer" method="_on_tiempo_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/PausaButton" to="CanvasLayer" method="_on_pausa_button_pressed"]

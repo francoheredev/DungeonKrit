@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://djhne4wwh3nx3" path="res://scripts/jugador.gd" id="1_jpodt"]
 [ext_resource type="Texture2D" uid="uid://bqnraiygqw2hp" path="res://Arte/pj1.png" id="2_jpodt"]
 [ext_resource type="PackedScene" uid="uid://c0fyf146f477b" path="res://escenas/proyectil.tscn" id="2_njcx7"]
+[ext_resource type="PackedScene" uid="uid://t4nfmaofj6qn" path="res://escenas/muerte_jugador.tscn" id="3_xutah"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njcx7"]
 atlas = ExtResource("2_jpodt")
@@ -20,8 +21,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tml57"]
-radius = 60.0
-height = 184.0
+radius = 85.0
+height = 170.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jpodt"]
 radius = 473.0
@@ -35,6 +36,7 @@ visibility_layer = 2
 position = Vector2(506, 1685)
 script = ExtResource("1_jpodt")
 escena_proyectil = ExtResource("2_njcx7")
+escena_muerte = ExtResource("3_xutah")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=803884170]
 position = Vector2(28, -32)
@@ -48,11 +50,12 @@ visibility_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=369169531]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(16, 7)
+position = Vector2(15, -12)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_tml57")
 
 [node name="radio_vision" type="Area2D" parent="." unique_id=1405045722]
+visible = false
 collision_layer = 2
 collision_mask = 2
 monitorable = false
@@ -67,6 +70,7 @@ width = 4.0
 default_color = Color(1, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617015700]
+visible = false
 position = Vector2(16, 19)
 shape = SubResource("RectangleShape2D_jpodt")
 

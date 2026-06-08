@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var velocidad: float = 500
 @export var velocidad_apuntado: float = 10.0
 @export var escena_proyectil: PackedScene
-
+@export var escena_muerte: PackedScene
 var tocando: bool = false
 var arrastrando: bool = false
 var inicio_toque: Vector2 = Vector2.ZERO
@@ -104,7 +104,18 @@ func die():
 
 	laser.visible = false
 
+	# Crear efecto de muerte
+	if escena_muerte:
+		var efecto = escena_muerte.instantiate()
+		get_parent().add_child(efecto)
+		efecto.global_position = global_position
+
+		if efecto is GPUParticles2D:
+			efecto.emitting = true
+
 	print("¡El jugador ha muerto!")
+
+	visible = false
 
 	await get_tree().create_timer(1.0).timeout
 

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://b6kjwqweq4y5o"]
+[gd_scene format=3 uid="uid://t4nfmaofj6qn"]
 
-[ext_resource type="Script" uid="uid://du7txepjfl7tc" path="res://scripts/muerte_enemigo.gd" id="1_f5l7y"]
+[ext_resource type="Script" uid="uid://du7txepjfl7tc" path="res://scripts/muerte_enemigo.gd" id="1_y6h53"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m0tpg"]
 lifetime_randomness = 0.4
@@ -17,9 +17,11 @@ scale_min = 2.0
 scale_max = 5.0
 
 [node name="muerte_enemigo" type="GPUParticles2D" unique_id=1534493515]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
 emitting = false
 amount = 100
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_m0tpg")
-script = ExtResource("1_f5l7y")
+script = ExtResource("1_y6h53")

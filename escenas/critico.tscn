@@ -19,13 +19,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ve8yo"]
-radius = 43.0
-height = 86.0
+radius = 31.0
+height = 62.0
 
 [node name="Critico" type="Area2D" unique_id=562138516 groups=["criticos"]]
 script = ExtResource("1_ah6s4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1458163379]
+position = Vector2(1.9073486e-06, 0)
+scale = Vector2(0.69078946, 0.7280702)
 sprite_frames = SubResource("SpriteFrames_38qqs")
 frame_progress = 0.74988323
 
