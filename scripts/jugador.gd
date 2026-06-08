@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var velocidad_apuntado: float = 10.0
 @export var escena_proyectil: PackedScene
 @export var escena_muerte: PackedScene
+@export var cooldown_disparo := 0.3
+
 var tocando: bool = false
 var arrastrando: bool = false
 var inicio_toque: Vector2 = Vector2.ZERO
@@ -56,11 +58,12 @@ func _apuntar_al_enemigo_cercano(delta):
 	for area in areas:
 		if area.is_in_group("enemigos"):
 			var d = global_position.distance_to(area.global_position)
+
 			if d < distancia_min:
 				distancia_min = d
 				objetivo = area
 
-	if objetivo != null:
+	if objetivo:
 		var dir = objetivo.global_position - global_position
 		var angulo = dir.angle() + PI / 2
 
@@ -79,6 +82,8 @@ func disparar():
 	if not puede_disparar:
 		return
 
+	puede_disparar = false
+
 	var flecha = escena_proyectil.instantiate()
 
 	get_parent().add_child(flecha)
@@ -87,7 +92,13 @@ func disparar():
 	flecha.global_rotation = global_rotation
 	flecha.direccion = Vector2.UP.rotated(global_rotation)
 
-	puede_disparar = false
+	reiniciar_disparo()
+
+func reiniciar_disparo():
+	await get_tree().create_timer(cooldown_disparo).timeout
+
+	if vivo:
+		puede_disparar = true
 
 func _detectar_colision_enemigo():
 	for area in hitbox.get_overlapping_areas():
@@ -101,21 +112,23 @@ func die():
 
 	vivo = false
 	tocando = false
+	puede_disparar = false
 
 	laser.visible = false
 
-	# Crear efecto de muerte
 	if escena_muerte:
 		var efecto = escena_muerte.instantiate()
+
 		get_parent().add_child(efecto)
+
 		efecto.global_position = global_position
 
 		if efecto is GPUParticles2D:
 			efecto.emitting = true
 
-	print("¡El jugador ha muerto!")
-
 	visible = false
+
+	print("¡El jugador ha muerto!")
 
 	await get_tree().create_timer(1.0).timeout
 

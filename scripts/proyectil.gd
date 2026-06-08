@@ -1,7 +1,7 @@
 extends Area2D
  
 @export var velocidad := 1200.0
-@export var distancia_maxima := 1500.0
+@export var distancia_maxima := 1200.0
 @export var dano := 10
 @export var offset_entierro := 30.0   # cuántos px se entierra en el enemigo
 @export var offset_entierro_critico := 70.0

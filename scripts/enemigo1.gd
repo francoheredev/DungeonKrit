@@ -8,7 +8,6 @@ extends Area2D
 @export var radio_criticos := 105
 @export var escena_muerte: PackedScene
 @export var escena_muerte_critica: PackedScene
-# VIDA
 @export var vida_maxima: int = 40
 
 var vida: int
@@ -18,17 +17,21 @@ var tiempo_patron: float = 0.0
 var indice_actual: int = 0
 
 func _ready():
+	print("ENEMIGO READY")
+	print("Posición inicial:", global_position)
+
 	vida = vida_maxima
 	generar_criticos()
+
 	var dungeon_manager = get_tree().get_first_node_in_group("dungeon_manager")
 
 	if dungeon_manager:
 		dungeon_manager.enemigos_vivos += 1
-		
+
 func configurar_ruta(marker_a: Marker2D, marker_b: Marker2D):
-	marcadores.clear()
-	marcadores.append(marker_a)
-	marcadores.append(marker_b)
+	marcadores = [marker_a, marker_b]
+	indice_actual = 0
+	global_position = marker_a.global_position
 
 func generar_criticos():
 	for i in cantidad_criticos:
@@ -39,9 +42,10 @@ func generar_criticos():
 		var angulo = randf_range(0, TAU)
 
 		critico.position = Vector2.RIGHT.rotated(angulo) * radio_criticos
+
 func _process(delta):
 	# Movimiento entre marcadores
-	if marcadores.size() > 0:
+	if marcadores.size() >= 2:
 		var objetivo = marcadores[indice_actual]
 
 		if objetivo != null:
@@ -53,7 +57,7 @@ func _process(delta):
 			if global_position.distance_to(objetivo.global_position) < 5.0:
 				indice_actual = (indice_actual + 1) % marcadores.size()
 
-	# Rotación dinámica estilo Knife Hit
+	# Rotación dinámica
 	tiempo_patron += delta
 	var ciclo = fmod(tiempo_patron, 8.0)
 
@@ -83,7 +87,8 @@ func _process(delta):
 		)
 
 	rotation += velocidad_rotacion_actual * delta
-# Shake visual
+
+	# Shake visual
 	if shake_strength > 0:
 		global_position += Vector2(
 			randf_range(-shake_strength, shake_strength),
@@ -91,7 +96,7 @@ func _process(delta):
 		)
 
 		shake_strength = lerp(shake_strength, 0.0, 20.0 * delta)
-		
+
 func shake(intensidad := 8.0):
 	shake_strength = intensidad
 
@@ -100,7 +105,6 @@ func recibir_dano(cantidad: int, es_critico := false):
 
 	if vida <= 0:
 		morir(es_critico)
-
 
 func morir(es_critico := false):
 	GameManager.kills += 1

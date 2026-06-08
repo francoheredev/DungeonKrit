@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://buke36obvtgni" path="res://escenas/jugador.tscn" id="2_dnloj"]
 [ext_resource type="PackedScene" uid="uid://cjs4r5w8t337f" path="res://escenas/salas/sala_1_a.tscn" id="2_dss0o"]
 [ext_resource type="PackedScene" uid="uid://bxtjn2w1ox14j" path="res://escenas/enemigo1.tscn" id="3_1m2o7"]
+[ext_resource type="PackedScene" uid="uid://cw1inti4yj3xt" path="res://escenas/salas/sala_2_a.tscn" id="3_33esw"]
+[ext_resource type="PackedScene" uid="uid://ctyv2qmagmith" path="res://escenas/salas/sala_3_a.tscn" id="4_torkp"]
 [ext_resource type="Texture2D" uid="uid://myblu33f7ls8" path="res://Arte/tile1.png" id="5_jg4y2"]
 [ext_resource type="Script" uid="uid://co8o0712n72ww" path="res://scripts/tiempolabel.gd" id="5_nia68"]
 [ext_resource type="Script" uid="uid://cswqwpipblbwr" path="res://scripts/menu_pausa.gd" id="6_nia68"]
-[ext_resource type="Script" uid="uid://b642207o7tp6e" path="res://scripts/enemigo_2.gd" id="7_u0vn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nia68"]
 texture = ExtResource("5_jg4y2")
@@ -207,6 +208,8 @@ position = Vector2(-1, 0)
 [node name="DungeonManager" type="Node" parent="." unique_id=773132345 groups=["dungeon_manager"]]
 script = ExtResource("1_sjk1h")
 sala1_scene = ExtResource("2_dss0o")
+sala2_scene = ExtResource("3_33esw")
+sala3_scene = ExtResource("4_torkp")
 enemigo_scene = ExtResource("3_1m2o7")
 
 [node name="SalaActual" type="Node2D" parent="." unique_id=1503440982]
@@ -219,25 +222,6 @@ texture = ExtResource("1_1m2o7")
 
 [node name="Jugador" parent="." unique_id=986974813 instance=ExtResource("2_dnloj")]
 collision_layer = 2
-
-[node name="EnemigoMomia" parent="." unique_id=92817530 node_paths=PackedStringArray("marcadores") instance=ExtResource("3_1m2o7")]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(946, 742)
-collision_layer = 3
-marcadores = [NodePath("../M2 enemigo 0"), NodePath("../M1 enemigo 0")]
-
-[node name="EnemigoMomia2" parent="." unique_id=1793233595 node_paths=PackedStringArray("marcadores") instance=ExtResource("3_1m2o7")]
-position = Vector2(162, 141)
-collision_layer = 3
-script = ExtResource("7_u0vn5")
-marcadores = [NodePath("../M1 enemigo 1"), NodePath("../M2 enemigo 2")]
-
-[node name="M1 enemigo 0" type="Marker2D" parent="." unique_id=661312952]
-position = Vector2(925, 615)
-
-[node name="M2 enemigo 0" type="Marker2D" parent="." unique_id=16709129]
-position = Vector2(245, 1136)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=359767752]
 tile_set = SubResource("TileSet_u0vn5")
