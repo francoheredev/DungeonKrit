@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cagl0d1jqvoc1"]
 
 [ext_resource type="Script" uid="uid://i80ukals0um4" path="res://scripts/critico.gd" id="1_ah6s4"]
-[ext_resource type="Texture2D" uid="uid://eyc1g1nuf166" path="res://Arte/krits.png" id="2_ah6s4"]
+[ext_resource type="Texture2D" uid="uid://dw65r0d27tn6a" path="res://Arte/krits4.png" id="2_ah6s4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_38qqs"]
 atlas = ExtResource("2_ah6s4")
-region = Rect2(0, 0, 76, 57)
+region = Rect2(0, 0, 152, 114)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_38qqs"]
 animations = [{
@@ -19,8 +19,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ve8yo"]
-radius = 20.0
-height = 40.0
+radius = 43.0
+height = 86.0
 
 [node name="Critico" type="Area2D" unique_id=562138516 groups=["criticos"]]
 script = ExtResource("1_ah6s4")

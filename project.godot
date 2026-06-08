@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeon Krit"
-run/main_scene="uid://bfu0dparv3vo"
+run/main_scene="uid://clmp2ttmudw0j"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
