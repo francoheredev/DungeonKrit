@@ -20,6 +20,15 @@ var indice_actual: int = 0
 func _ready():
 	vida = vida_maxima
 	generar_criticos()
+	var dungeon_manager = get_tree().get_first_node_in_group("dungeon_manager")
+
+	if dungeon_manager:
+		dungeon_manager.enemigos_vivos += 1
+		
+func configurar_ruta(marker_a: Marker2D, marker_b: Marker2D):
+	marcadores.clear()
+	marcadores.append(marker_a)
+	marcadores.append(marker_b)
 
 func generar_criticos():
 	for i in cantidad_criticos:
@@ -102,8 +111,12 @@ func morir(es_critico := false):
 	else:
 		crear_efecto_muerte()
 
+	var dungeon_manager = get_tree().get_first_node_in_group("dungeon_manager")
+
+	if dungeon_manager:
+		dungeon_manager.enemigo_muerto()
+
 	queue_free()
-	
 
 func crear_efecto_muerte():
 	if escena_muerte == null:

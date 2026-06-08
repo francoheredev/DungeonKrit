@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bfu0dparv3vo"]
 
 [ext_resource type="Texture2D" uid="uid://q6arkjcpbpnn" path="res://Arte/bg1.png" id="1_1m2o7"]
+[ext_resource type="Script" uid="uid://dqndabgylww67" path="res://dungeon_manager.gd" id="1_sjk1h"]
 [ext_resource type="PackedScene" uid="uid://buke36obvtgni" path="res://escenas/jugador.tscn" id="2_dnloj"]
+[ext_resource type="PackedScene" uid="uid://cjs4r5w8t337f" path="res://escenas/salas/sala_1_a.tscn" id="2_dss0o"]
 [ext_resource type="PackedScene" uid="uid://bxtjn2w1ox14j" path="res://escenas/enemigo1.tscn" id="3_1m2o7"]
 [ext_resource type="Texture2D" uid="uid://myblu33f7ls8" path="res://Arte/tile1.png" id="5_jg4y2"]
 [ext_resource type="Script" uid="uid://co8o0712n72ww" path="res://scripts/tiempolabel.gd" id="5_nia68"]
 [ext_resource type="Script" uid="uid://cswqwpipblbwr" path="res://scripts/menu_pausa.gd" id="6_nia68"]
-[ext_resource type="Script" uid="uid://b642207o7tp6e" path="res://escenas/enemigo_2.gd" id="7_u0vn5"]
+[ext_resource type="Script" uid="uid://b642207o7tp6e" path="res://scripts/enemigo_2.gd" id="7_u0vn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nia68"]
 texture = ExtResource("5_jg4y2")
@@ -201,6 +203,13 @@ font_size = 37
 
 [node name="gameplay" type="Node2D" unique_id=1782014250]
 position = Vector2(-1, 0)
+
+[node name="DungeonManager" type="Node" parent="." unique_id=773132345 groups=["dungeon_manager"]]
+script = ExtResource("1_sjk1h")
+sala1_scene = ExtResource("2_dss0o")
+enemigo_scene = ExtResource("3_1m2o7")
+
+[node name="SalaActual" type="Node2D" parent="." unique_id=1503440982]
 
 [node name="fondo" type="Sprite2D" parent="." unique_id=223556045]
 z_index = -2

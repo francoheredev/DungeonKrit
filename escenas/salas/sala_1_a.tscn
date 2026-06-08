@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cjs4r5w8t337f"]
+
+[node name="Sala1_A" type="Node2D" unique_id=949275896]
+
+[node name="Rutas" type="Node2D" parent="." unique_id=2006077185]
+
+[node name="Ruta1" type="Node2D" parent="Rutas" unique_id=1911305554]
+
+[node name="MarkerA" type="Marker2D" parent="Rutas/Ruta1" unique_id=249686007]
+position = Vector2(906, 1444)
+
+[node name="MarkerB" type="Marker2D" parent="Rutas/Ruta1" unique_id=1231109583]
+position = Vector2(206, 1215)
+
+[node name="Ruta2" type="Node2D" parent="Rutas" unique_id=2089453500]
+
+[node name="MarkerA" type="Marker2D" parent="Rutas/Ruta2" unique_id=1911768802]
+position = Vector2(238, 344)
+
+[node name="MarkerB" type="Marker2D" parent="Rutas/Ruta2" unique_id=520919293]
+position = Vector2(875, 344)
+
+[node name="Ruta3" type="Node2D" parent="Rutas" unique_id=1653855334]
+
+[node name="MarkerA" type="Marker2D" parent="Rutas/Ruta3" unique_id=1161396147]
+position = Vector2(814, 632)
+
+[node name="MarkerB" type="Marker2D" parent="Rutas/Ruta3" unique_id=1645326660]
+position = Vector2(364, 1001)
