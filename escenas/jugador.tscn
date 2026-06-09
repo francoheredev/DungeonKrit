@@ -64,11 +64,6 @@ monitorable = false
 position = Vector2(26, -2)
 shape = SubResource("CircleShape2D_jpodt")
 
-[node name="Line2D" type="Line2D" parent="." unique_id=2094719416]
-points = PackedVector2Array(0, -2, -15, -386)
-width = 4.0
-default_color = Color(1, 0, 0, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617015700]
 visible = false
 position = Vector2(16, 19)

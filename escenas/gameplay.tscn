@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bfu0dparv3vo"]
+[gd_scene format=4 uid="uid://bfu0dparv3vo"]
 
 [ext_resource type="Texture2D" uid="uid://q6arkjcpbpnn" path="res://Arte/bg1.png" id="1_1m2o7"]
 [ext_resource type="Script" uid="uid://dqndabgylww67" path="res://dungeon_manager.gd" id="1_sjk1h"]
@@ -7,188 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bxtjn2w1ox14j" path="res://escenas/enemigo1.tscn" id="3_1m2o7"]
 [ext_resource type="PackedScene" uid="uid://cw1inti4yj3xt" path="res://escenas/salas/sala_2_a.tscn" id="3_33esw"]
 [ext_resource type="PackedScene" uid="uid://ctyv2qmagmith" path="res://escenas/salas/sala_3_a.tscn" id="4_torkp"]
-[ext_resource type="Texture2D" uid="uid://myblu33f7ls8" path="res://Arte/tile1.png" id="5_jg4y2"]
 [ext_resource type="Script" uid="uid://co8o0712n72ww" path="res://scripts/tiempolabel.gd" id="5_nia68"]
 [ext_resource type="Script" uid="uid://cswqwpipblbwr" path="res://scripts/menu_pausa.gd" id="6_nia68"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nia68"]
-texture = ExtResource("5_jg4y2")
-texture_region_size = Vector2i(216, 213)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-108, -106.5, 108, -106.5, 108, 106.5, -108, 106.5)
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-9:5/0 = 0
-10:5/0 = 0
-11:5/0 = 0
-12:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-9:6/0 = 0
-10:6/0 = 0
-11:6/0 = 0
-12:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-10:7/0 = 0
-11:7/0 = 0
-12:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-11:8/0 = 0
-12:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-9:10/0 = 0
-10:10/0 = 0
-11:10/0 = 0
-12:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
-6:11/0 = 0
-7:11/0 = 0
-8:11/0 = 0
-9:11/0 = 0
-10:11/0 = 0
-11:11/0 = 0
-12:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
-4:12/0 = 0
-5:12/0 = 0
-6:12/0 = 0
-7:12/0 = 0
-8:12/0 = 0
-9:12/0 = 0
-10:12/0 = 0
-11:12/0 = 0
-12:12/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_u0vn5"]
-tile_size = Vector2i(216, 213)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_nia68")
+[ext_resource type="PackedScene" uid="uid://b7f8g4u570pqq" path="res://escenas/sombra_enemigo_1.tscn" id="6_torkp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jg4y2"]
 font_size = 83
@@ -202,6 +23,61 @@ font_size = 37
 [sub_resource type="LabelSettings" id="LabelSettings_sjk1h"]
 font_size = 37
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33esw"]
+texture = ExtResource("1_1m2o7")
+texture_region_size = Vector2i(216, 212)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-108, -106, 108, -106, 108, 106, -108, 106)
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_torkp"]
+tile_size = Vector2i(216, 212)
+physics_layer_0/collision_layer = 1
+sources/5 = SubResource("TileSetAtlasSource_33esw")
+
 [node name="gameplay" type="Node2D" unique_id=1782014250]
 position = Vector2(-1, 0)
 
@@ -211,6 +87,7 @@ sala1_scene = ExtResource("2_dss0o")
 sala2_scene = ExtResource("3_33esw")
 sala3_scene = ExtResource("4_torkp")
 enemigo_scene = ExtResource("3_1m2o7")
+escena_sombra = ExtResource("6_torkp")
 
 [node name="SalaActual" type="Node2D" parent="." unique_id=1503440982]
 
@@ -222,11 +99,6 @@ texture = ExtResource("1_1m2o7")
 
 [node name="Jugador" parent="." unique_id=986974813 instance=ExtResource("2_dnloj")]
 collision_layer = 2
-
-[node name="TileMap" type="TileMap" parent="." unique_id=359767752]
-tile_set = SubResource("TileSet_u0vn5")
-format = 2
-layer_0/tile_data = PackedInt32Array(589823, 0, 0, 524287, 0, 0, 458751, 0, 0, 393215, 0, 0, 327679, 0, 0, 262143, 0, 0, 196607, 0, 0, 131071, 0, 0, 65535, 0, 0, -1, 0, 0, -65531, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 327685, 0, 0, 393221, 0, 0, 458757, 0, 0, 524293, 0, 0, 589829, 0, 0, 589828, 0, 0, 589827, 0, 0, 589826, 0, 0, 589825, 0, 0, 589824, 0, 0, 655359, 0, 0, -65532, 0, 0, -65533, 0, 0, -65534, 0, 0, -65535, 0, 0, -65536, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1560071652]
 script = ExtResource("5_nia68")
@@ -309,11 +181,9 @@ offset_right = 684.0
 offset_bottom = 1293.0
 text = "MENÚ"
 
-[node name="M1 enemigo 1" type="Marker2D" parent="." unique_id=1473005288]
-position = Vector2(141, 386)
-
-[node name="M2 enemigo 2" type="Marker2D" parent="." unique_id=224245625]
-position = Vector2(911, 355)
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1301647209]
+tile_map_data = PackedByteArray("AAD//wAABQABAAIAAAD//wEABQABAAIAAAD//wIABQABAAIAAAD//wMABQABAAIAAAD//wQABQABAAIAAAD//wUABQABAAIAAAD//wYABQABAAIAAAD//wcABQABAAIAAAD//wgABQABAAIAAAD//wkABQABAAIAAAAAAAkABQABAAIAAAABAAkABQABAAIAAAACAAkABQABAAIAAAADAAkABQABAAIAAAAEAAkABQABAAIAAAAFAAkABQABAAIAAAAFAAgABQABAAIAAAAFAAcABQABAAIAAAAFAAYABQABAAIAAAAFAAUABQABAAIAAAAFAAQABQABAAIAAAAFAAMABQABAAIAAAAFAAIABQABAAIAAAAFAAEABQABAAIAAAAFAAAABQABAAIAAAAFAP//BQABAAIAAAD/////BQABAAIAAAAAAP//BQABAAIAAAABAP//BQABAAIAAAACAP//BQABAAIAAAADAP//BQABAAIAAAAEAP//BQABAAIAAAA=")
+tile_set = SubResource("TileSet_torkp")
 
 [connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer" method="_on_tiempo_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/PausaButton" to="CanvasLayer" method="_on_pausa_button_pressed"]
