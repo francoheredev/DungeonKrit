@@ -23,9 +23,11 @@ GameManager="*uid://d1cb0sfykj16j"
 
 window/size/viewport_width=1080
 window/size/viewport_height=1920
+window/size/mode=3
 window/size/window_width_override=360
 window/size/window_height_override=640
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [dotnet]
 
@@ -51,3 +53,4 @@ pointing/emulate_touch_from_mouse=true
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

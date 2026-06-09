@@ -67,8 +67,8 @@ func _apuntar_al_enemigo_cercano(delta):
 				objetivo = area
 
 	# DEBUG IMPORTANTE (solo si falla en sala 3)
-	if objetivo == null:
-		print("DEBUG: sin objetivo en radio | overlaps=", areas.size())
+	#if objetivo == null:
+		#print("DEBUG: sin objetivo en radio | overlaps=", areas.size())
 
 	if objetivo:
 		var dir = objetivo.global_position - global_position
