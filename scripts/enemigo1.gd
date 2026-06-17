@@ -5,7 +5,7 @@ extends Area2D
 @export var velocidad_base_rotacion: float = 4.0
 @export var escena_critico: PackedScene
 @export var cantidad_criticos := 2
-@export var radio_criticos := 105
+@export var radio_criticos := 153.16
 @export var escena_muerte: PackedScene
 @export var escena_muerte_critica: PackedScene
 @export var vida_maxima: int = 40

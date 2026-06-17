@@ -5,15 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://c0fyf146f477b" path="res://escenas/proyectil.tscn" id="2_njcx7"]
 [ext_resource type="PackedScene" uid="uid://t4nfmaofj6qn" path="res://escenas/muerte_jugador.tscn" id="3_xutah"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_njcx7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xutah"]
 atlas = ExtResource("2_jpodt")
-region = Rect2(0, 0, 250, 300)
+region = Rect2(0, 0, 375, 450)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jpodt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_njcx7")
+"texture": SubResource("AtlasTexture_xutah")
 }],
 "loop": true,
 "name": &"default",
@@ -21,8 +21,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tml57"]
-radius = 85.0
-height = 170.0
+radius = 130.0
+height = 272.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jpodt"]
 radius = 473.0
@@ -31,7 +31,7 @@ radius = 473.0
 size = Vector2(174, 48)
 
 [node name="Jugador" type="CharacterBody2D" unique_id=986974813 groups=["jugador"]]
-light_mask = 2
+light_mask = 3
 visibility_layer = 2
 position = Vector2(506, 1685)
 script = ExtResource("1_jpodt")
@@ -50,12 +50,11 @@ visibility_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=369169531]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(15, -12)
+position = Vector2(17, 6)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_tml57")
 
 [node name="radio_vision" type="Area2D" parent="." unique_id=1405045722]
-visible = false
 collision_layer = 2
 collision_mask = 2
 monitorable = false
@@ -65,7 +64,6 @@ position = Vector2(26, -2)
 shape = SubResource("CircleShape2D_jpodt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617015700]
-visible = false
 position = Vector2(16, 19)
 shape = SubResource("RectangleShape2D_jpodt")
 

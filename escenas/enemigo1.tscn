@@ -6,15 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://b6kjwqweq4y5o" path="res://escenas/muerte_enemigo.tscn" id="3_lafqi"]
 [ext_resource type="PackedScene" uid="uid://dwnq87fja476r" path="res://escenas/muerte_enemigo_critico.tscn" id="4_kst81"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t28q1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kst81"]
 atlas = ExtResource("2_ps4le")
-region = Rect2(0, 0, 300, 250)
+region = Rect2(0, 0, 450, 375)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1dqpx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t28q1")
+"texture": SubResource("AtlasTexture_kst81")
 }],
 "loop": true,
 "name": &"default",
@@ -22,7 +22,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ps4le"]
-radius = 102.0
+radius = 153.16005
 
 [node name="EnemigoMomia" type="Area2D" unique_id=92817530 groups=["enemigos"]]
 collision_layer = 3
@@ -38,4 +38,5 @@ sprite_frames = SubResource("SpriteFrames_1dqpx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1926468400]
 light_mask = 2
 visibility_layer = 2
+position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_ps4le")
