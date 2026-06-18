@@ -47,10 +47,10 @@ icon = ExtResource("3_nr5xo")
 
 [node name="SalirButton" type="Button" parent="." unique_id=800159562]
 layout_mode = 0
-offset_left = 1219.0
-offset_top = 978.0
-offset_right = 1862.0
-offset_bottom = 1178.0
+offset_left = 258.0
+offset_top = 1625.0
+offset_right = 901.0
+offset_bottom = 1825.0
 text = "Salir"
 
 [node name="Logo" type="Sprite2D" parent="." unique_id=1710283186]
