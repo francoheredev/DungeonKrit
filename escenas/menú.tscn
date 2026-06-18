@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://clmp2ttmudw0j"]
 
 [ext_resource type="Script" uid="uid://ewfwj2xdyo7b" path="res://scripts/menú.gd" id="1_65sl1"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_lehou"]
-font_size = 135
+[ext_resource type="Texture2D" uid="uid://s1khufkk3wwa" path="res://Arte/play ico.png" id="2_dmi2i"]
+[ext_resource type="Texture2D" uid="uid://bnwvvg53c00t3" path="res://Arte/shop ico.png" id="3_nr5xo"]
+[ext_resource type="Texture2D" uid="uid://bile4qycbwvhm" path="res://Arte/logo.png" id="4_nr5xo"]
+[ext_resource type="Texture2D" uid="uid://dw65r0d27tn6a" path="res://Arte/krits4.png" id="5_atte1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_65sl1"]
 font_size = 59
@@ -17,47 +18,49 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_65sl1")
 
-[node name="Label" type="Label" parent="." unique_id=1391198492]
-layout_mode = 0
-offset_left = 140.0
-offset_top = 414.0
-offset_right = 1002.0
-offset_bottom = 599.0
-text = "Dungeon Krit"
-label_settings = SubResource("LabelSettings_lehou")
-
 [node name="Krits" type="Label" parent="." unique_id=1185061341]
 layout_mode = 0
-offset_left = 801.0
-offset_top = 69.0
-offset_right = 998.0
-offset_bottom = 151.0
-text = "Krits: 0"
+offset_left = 961.0
+offset_top = 66.0
+offset_right = 1158.0
+offset_bottom = 148.0
+text = ": 0"
 label_settings = SubResource("LabelSettings_65sl1")
 
 [node name="JugarButton" type="Button" parent="." unique_id=966769675]
 layout_mode = 0
-offset_left = 249.0
-offset_top = 789.0
-offset_right = 883.0
-offset_bottom = 959.0
-text = "Jugar"
+offset_left = 475.0
+offset_top = 1348.0
+offset_right = 1283.0007
+offset_bottom = 2156.0
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("2_dmi2i")
 
 [node name="TiendaButton" type="Button" parent="." unique_id=1669798714]
 layout_mode = 0
-offset_left = 255.0
-offset_top = 1064.0
-offset_right = 879.0
-offset_bottom = 1247.0
-text = "Tienda"
+offset_left = 774.0
+offset_top = 1295.0
+offset_right = 1582.0
+offset_bottom = 2103.0
+scale = Vector2(0.14, 0.14)
+icon = ExtResource("3_nr5xo")
 
 [node name="SalirButton" type="Button" parent="." unique_id=800159562]
 layout_mode = 0
-offset_left = 247.0
-offset_top = 1346.0
-offset_right = 890.0
-offset_bottom = 1546.0
+offset_left = 1219.0
+offset_top = 978.0
+offset_right = 1862.0
+offset_bottom = 1178.0
 text = "Salir"
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=1710283186]
+position = Vector2(586, 642)
+texture = ExtResource("4_nr5xo")
+
+[node name="Krits4" type="Sprite2D" parent="." unique_id=1847589169]
+position = Vector2(921, 111)
+scale = Vector2(0.94736844, 0.9385965)
+texture = ExtResource("5_atte1")
 
 [connection signal="pressed" from="JugarButton" to="." method="_on_jugar_button_pressed"]
 [connection signal="pressed" from="TiendaButton" to="." method="_on_tienda_button_pressed"]

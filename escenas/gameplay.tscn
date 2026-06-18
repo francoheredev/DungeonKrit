@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://co8o0712n72ww" path="res://scripts/tiempolabel.gd" id="5_nia68"]
 [ext_resource type="Script" uid="uid://cswqwpipblbwr" path="res://scripts/menu_pausa.gd" id="6_nia68"]
 [ext_resource type="PackedScene" uid="uid://b7f8g4u570pqq" path="res://escenas/sombra_enemigo_1.tscn" id="6_torkp"]
+[ext_resource type="Texture2D" uid="uid://c67llqur2flrp" path="res://Arte/config ico.png" id="10_torkp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jg4y2"]
 font_size = 83
@@ -141,9 +142,10 @@ label_settings = SubResource("LabelSettings_sjk1h")
 [node name="PausaButton" type="Button" parent="CanvasLayer" unique_id=1243000211]
 offset_left = 966.0
 offset_top = 1800.0
-offset_right = 1048.0
-offset_bottom = 1883.0
-text = "II"
+offset_right = 1774.0
+offset_bottom = 2608.0
+scale = Vector2(0.115, 0.115)
+icon = ExtResource("10_torkp")
 
 [node name="MenuPausa" type="Control" parent="CanvasLayer" unique_id=1466173383]
 process_mode = 2
