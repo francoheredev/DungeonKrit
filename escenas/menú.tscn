@@ -9,6 +9,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_65sl1"]
 font_size = 59
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_atte1"]
+load_path = "res://.godot/imported/achie ico.png-174f45c559a5faf27a22ff77f5271173.ctex"
+
 [node name="Menú" type="Control" unique_id=266787158]
 layout_mode = 3
 anchors_preset = 15
@@ -61,6 +64,15 @@ texture = ExtResource("4_nr5xo")
 position = Vector2(921, 111)
 scale = Vector2(0.94736844, 0.9385965)
 texture = ExtResource("5_atte1")
+
+[node name="LogrosButton" type="Button" parent="." unique_id=516241146]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 1292.0
+offset_right = 1078.0
+offset_bottom = 2100.0
+scale = Vector2(0.135, 0.135)
+icon = SubResource("CompressedTexture2D_atte1")
 
 [connection signal="pressed" from="JugarButton" to="." method="_on_jugar_button_pressed"]
 [connection signal="pressed" from="TiendaButton" to="." method="_on_tienda_button_pressed"]
