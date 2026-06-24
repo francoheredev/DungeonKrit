@@ -9,6 +9,3 @@ func _on_jugar_button_pressed():
 
 func _on_tienda_button_pressed():
 	print("Abrir tienda")
-
-func _on_salir_button_pressed():
-	get_tree().quit()
