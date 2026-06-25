@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cagl0d1jqvoc1"]
 
 [ext_resource type="Script" uid="uid://i80ukals0um4" path="res://scripts/critico.gd" id="1_ah6s4"]
-[ext_resource type="Texture2D" uid="uid://dw65r0d27tn6a" path="res://Arte/krits4.png" id="2_ah6s4"]
+[ext_resource type="Texture2D" uid="uid://eyc1g1nuf166" path="res://Arte/krits.png" id="2_ah6s4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_38qqs"]
 atlas = ExtResource("2_ah6s4")
-region = Rect2(0, 0, 152, 114)
+region = Rect2(0, 0, 228, 171)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_38qqs"]
 animations = [{
@@ -29,7 +29,7 @@ script = ExtResource("1_ah6s4")
 position = Vector2(1.9073486e-06, 0)
 scale = Vector2(0.69078946, 0.7280702)
 sprite_frames = SubResource("SpriteFrames_38qqs")
-frame_progress = 0.74988323
+frame_progress = 0.80109036
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=128010]
 shape = SubResource("CapsuleShape2D_ve8yo")
