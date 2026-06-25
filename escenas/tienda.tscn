@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c6mjmi71mpmdg"]
+
+[ext_resource type="Texture2D" uid="uid://bs0k1knk3a5u8" path="res://Arte/ChatGPT Image 23 jun 2026, 10_20_31 p.m..png" id="1_5ur6e"]
+[ext_resource type="Script" uid="uid://bqqihh6w5gk63" path="res://escenas/tienda.gd" id="1_ao03l"]
+[ext_resource type="Texture2D" uid="uid://dm8g07670h6gw" path="res://Arte/b2r.png" id="3_oa3nc"]
+[ext_resource type="Texture2D" uid="uid://dw65r0d27tn6a" path="res://Arte/krits4.png" id="4_vpu2b"]
+[ext_resource type="Texture2D" uid="uid://dptrwajcb6j3f" path="res://Arte/runa.png" id="5_7381e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kp5l5"]
+font_size = 61
+
+[sub_resource type="LabelSettings" id="LabelSettings_7c0fu"]
+font_size = 59
+
+[node name="Tienda" type="Control" unique_id=2142671255]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ao03l")
+
+[node name="fondo" type="Sprite2D" parent="." unique_id=1189355231]
+modulate = Color(0.58371854, 0.58371854, 0.58371854, 1)
+z_index = -2
+position = Vector2(540, 960.49994)
+scale = Vector2(1.185, 1.186)
+texture = ExtResource("1_5ur6e")
+flip_v = true
+
+[node name="MenuButton" type="Button" parent="." unique_id=1395297029]
+layout_mode = 0
+offset_left = 36.405
+offset_top = 28.2
+offset_right = 844.405
+offset_bottom = 836.2
+scale = Vector2(0.24, 0.24)
+icon = ExtResource("3_oa3nc")
+
+[node name="Label" type="Label" parent="." unique_id=808328232]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 305.0
+offset_right = 926.405
+offset_bottom = 622.0
+text = "TIENDA
+"
+label_settings = SubResource("LabelSettings_kp5l5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Krits" type="Label" parent="." unique_id=487271534]
+layout_mode = 0
+offset_left = 887.03
+offset_top = 55.0
+offset_right = 1084.03
+offset_bottom = 137.00006
+text = ": 0"
+label_settings = SubResource("LabelSettings_7c0fu")
+
+[node name="Runas" type="Label" parent="." unique_id=1152714102]
+layout_mode = 0
+offset_left = 615.39996
+offset_top = 50.705013
+offset_right = 812.4
+offset_bottom = 132.70505
+text = ": 0"
+label_settings = SubResource("LabelSettings_7c0fu")
+
+[node name="Krits4" type="Sprite2D" parent="." unique_id=690435161]
+position = Vector2(850.185, 100)
+scale = Vector2(0.94736844, 0.9385965)
+texture = ExtResource("4_vpu2b")
+
+[node name="Runas2" type="Sprite2D" parent="." unique_id=178869105]
+position = Vector2(566.68, 100)
+scale = Vector2(0.567, 0.562)
+texture = ExtResource("5_7381e")
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
