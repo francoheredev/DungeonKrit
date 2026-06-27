@@ -28,10 +28,10 @@ func _input(event):
 			arrastrando = false
 			inicio_toque = event.position
 		else:
-			if not arrastrando:
-				disparar()
+			disparar()
 
 			tocando = false
+			arrastrando = false
 			direccion = Vector2.ZERO
 
 	elif event is InputEventScreenDrag and tocando:
@@ -78,21 +78,6 @@ func _apuntar_al_enemigo_cercano(delta):
 
 func disparar():
 	if not puede_disparar:
-		return
-
-	# 🔥 FIX CLAVE: no dependemos de enemigo_actual ni estado cacheado
-	var hay_enemigo = false
-
-	for area in radio_vision.get_overlapping_areas():
-		if area.is_in_group("enemigos"):
-			hay_enemigo = true
-			break
-
-	# DEBUG para tu bug de sala 3
-	print("DISPARO INTENTO | enemigos en rango:", radio_vision.get_overlapping_areas().size())
-
-	if not hay_enemigo:
-		print("DISPARO CANCELADO (sin enemigo detectado)")
 		return
 
 	puede_disparar = false
