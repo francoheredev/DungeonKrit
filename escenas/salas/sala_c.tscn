@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://crbiay1j4cdp5"]
+
+[node name="sala_c" type="Node2D"]
+
+[node name="Rutas" type="Node2D" parent="."]
+
+[node name="Ruta1" type="Node2D" parent="Rutas"]
+
+[node name="MarkerA" type="Marker2D" parent="Rutas/Ruta1"]
+position = Vector2(200, 500)
+
+[node name="MarkerB" type="Marker2D" parent="Rutas/Ruta1"]
+position = Vector2(880, 500)
+
+[node name="Ruta2" type="Node2D" parent="Rutas"]
+
+[node name="MarkerA" type="Marker2D" parent="Rutas/Ruta2"]
+position = Vector2(200, 1000)
+
+[node name="MarkerB" type="Marker2D" parent="Rutas/Ruta2"]
+position = Vector2(880, 1000)
+
+[node name="Ruta3" type="Node2D" parent="Rutas"]
+
+[node name="MarkerA" type="Marker2D" parent="Rutas/Ruta3"]
+position = Vector2(200, 1500)
+
+[node name="MarkerB" type="Marker2D" parent="Rutas/Ruta3"]
+position = Vector2(880, 1500)

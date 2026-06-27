@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var escena_muerte: PackedScene
 @export var cooldown_disparo := 0.3
 @export var distancia_arrastre := 40.0
+@export var opciones_sprite_frames: Array[SpriteFrames]
 
 var tocando: bool = false
 var arrastrando: bool = false
@@ -16,6 +17,20 @@ var puede_disparar: bool = true
 
 @onready var radio_vision = $radio_vision
 @onready var hitbox = $Hitbox
+
+
+func _ready():
+	var idx = GameManager.selected_character
+	var data = GameManager.CHARACTER_DATA[idx]
+
+	velocidad = data.velocidad
+	velocidad_apuntado = data.velocidad_apuntado
+	cooldown_disparo = data.cooldown_disparo
+	escena_proyectil = data.proyectil
+	escena_muerte = data.muerte
+
+	if idx < opciones_sprite_frames.size():
+		$AnimatedSprite2D2.sprite_frames = opciones_sprite_frames[idx]
 
 
 func _input(event):
@@ -82,12 +97,18 @@ func disparar():
 
 	puede_disparar = false
 
+	var data = GameManager.CHARACTER_DATA[GameManager.selected_character]
+	var offset = data.offset_proyectil
+
 	var flecha = escena_proyectil.instantiate()
 	get_parent().add_child(flecha)
 
-	flecha.global_position = global_position + Vector2(55, -100).rotated(global_rotation)
+	flecha.global_position = global_position + offset.rotated(global_rotation)
 	flecha.global_rotation = global_rotation
 	flecha.direccion = Vector2.UP.rotated(global_rotation)
+	flecha.dano = data.dano
+	flecha.velocidad = data.velocidad_proyectil
+	flecha.distancia_maxima = data.distancia_maxima_proyectil
 
 	await get_tree().create_timer(cooldown_disparo).timeout
 

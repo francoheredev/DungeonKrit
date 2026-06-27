@@ -67,7 +67,7 @@ func clavar(enemigo):
 	var jugador = get_tree().get_first_node_in_group("jugador")
 	if jugador:
 		jugador.puede_disparar = true
- 
+
 func game_over():
 	print("GAME OVER")
 

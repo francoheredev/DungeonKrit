@@ -11,6 +11,11 @@
 [ext_resource type="Script" uid="uid://cswqwpipblbwr" path="res://scripts/menu_pausa.gd" id="6_nia68"]
 [ext_resource type="PackedScene" uid="uid://b7f8g4u570pqq" path="res://escenas/sombra_enemigo_1.tscn" id="6_torkp"]
 [ext_resource type="Texture2D" uid="uid://c67llqur2flrp" path="res://Arte/config ico.png" id="10_torkp"]
+[ext_resource type="PackedScene" path="res://escenas/salas/sala_b.tscn" id="11_abcde"]
+[ext_resource type="PackedScene" path="res://escenas/salas/sala_c.tscn" id="12_abcde"]
+[ext_resource type="PackedScene" path="res://escenas/salas/sala_boss_1.tscn" id="13_abcde"]
+[ext_resource type="PackedScene" path="res://escenas/enemigo_boss.tscn" id="14_abcde"]
+[ext_resource type="PackedScene" path="res://escenas/sombra_boss.tscn" id="15_abcde"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jg4y2"]
 font_size = 83
@@ -84,11 +89,12 @@ position = Vector2(-1, 0)
 
 [node name="DungeonManager" type="Node" parent="." unique_id=773132345 groups=["dungeon_manager"]]
 script = ExtResource("1_sjk1h")
-sala1_scene = ExtResource("2_dss0o")
-sala2_scene = ExtResource("3_33esw")
-sala3_scene = ExtResource("4_torkp")
+salas_normales = [ExtResource("2_dss0o"), ExtResource("3_33esw"), ExtResource("4_torkp"), ExtResource("11_abcde"), ExtResource("12_abcde")]
+salas_boss = [ExtResource("13_abcde")]
 enemigo_scene = ExtResource("3_1m2o7")
+enemigo_boss_scene = ExtResource("14_abcde")
 escena_sombra = ExtResource("6_torkp")
+escena_sombra_boss = ExtResource("15_abcde")
 
 [node name="SalaActual" type="Node2D" parent="." unique_id=1503440982]
 
