@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://daejruml2atds"]
 
-[ext_resource type="Script" path="res://scripts/enemigo_boss.gd" id="1_xt8j8"]
+[ext_resource type="Script" uid="uid://wvnab4c686v0" path="res://scripts/enemigo_boss.gd" id="1_xt8j8"]
 [ext_resource type="PackedScene" uid="uid://cagl0d1jqvoc1" path="res://escenas/critico.tscn" id="2_3sbly"]
 [ext_resource type="Texture2D" uid="uid://dnc5k27viwss4" path="res://Arte/jef1.png" id="3_ps4le"]
 [ext_resource type="PackedScene" uid="uid://b6kjwqweq4y5o" path="res://escenas/muerte_enemigo.tscn" id="4_lafqi"]
@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ps4le"]
 radius = 200.0
 
-[node name="EnemigoBoss" type="Area2D" groups=["enemigos"]]
+[node name="EnemigoBoss" type="Area2D" unique_id=209353921 groups=["enemigos"]]
 collision_layer = 3
 collision_mask = 2
 script = ExtResource("1_xt8j8")
@@ -17,9 +17,8 @@ escena_critico = ExtResource("2_3sbly")
 escena_muerte = ExtResource("4_lafqi")
 escena_muerte_critica = ExtResource("5_kst81")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1806458806]
 texture = ExtResource("3_ps4le")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=677245294]
 shape = SubResource("CircleShape2D_ps4le")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b53whmejbl25j"]
+
+[node name="sala_boss_2" type="Node2D"]
+
+[node name="Rutas" type="Node2D" parent="."]
+
+[node name="Ruta1" type="Node2D" parent="Rutas"]
+
+[node name="MarkerA" type="Marker2D" parent="Rutas/Ruta1"]
+position = Vector2(880, 300)
+
+[node name="MarkerB" type="Marker2D" parent="Rutas/Ruta1"]
+position = Vector2(200, 1600)

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dpawuutk5fj4h"]
+
+[ext_resource type="Texture2D" uid="uid://daxhl4j056peg" path="res://Arte/enem2.png" id="1_n274b"]
+
+[node name="sombra_enemigo2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.8446136, 0.84461355, 0.84461355, 1)
+self_modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_n274b")

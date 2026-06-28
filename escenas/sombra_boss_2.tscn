@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://1vp5e684xstp"]
+
+[ext_resource type="Texture2D" uid="uid://kdfm10gl55bx" path="res://Arte/jef2.png" id="1_n274b"]
+
+[node name="sombra_boss2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.8446136, 0.84461355, 0.84461355, 1)
+self_modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_n274b")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://baaud7uy460er"]
+
+[ext_resource type="Script" uid="uid://c1e7kwonn1pgy" path="res://escenas/enemigo_boss_2.gd" id="1_4syea"]
+[ext_resource type="PackedScene" uid="uid://cagl0d1jqvoc1" path="res://escenas/critico.tscn" id="2_3sbly"]
+[ext_resource type="Texture2D" uid="uid://kdfm10gl55bx" path="res://Arte/jef2.png" id="3_ps4le"]
+[ext_resource type="PackedScene" uid="uid://c1bn2ma8cstw5" path="res://escenas/impacto_critico.tscn" id="4_c7l1x"]
+[ext_resource type="PackedScene" uid="uid://b6kjwqweq4y5o" path="res://escenas/muerte_enemigo.tscn" id="4_lafqi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_boss2"]
+radius = 207.00241
+
+[node name="EnemigoBoss2" type="Area2D" unique_id=1016825479 groups=["enemigos"]]
+collision_layer = 3
+collision_mask = 2
+script = ExtResource("1_4syea")
+escena_critico = ExtResource("2_3sbly")
+escena_muerte = ExtResource("4_lafqi")
+escena_muerte_critica = ExtResource("4_c7l1x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=414339675]
+texture = ExtResource("3_ps4le")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=752950629]
+shape = SubResource("CircleShape2D_boss2")
