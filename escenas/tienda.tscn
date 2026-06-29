@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cxcexblkt2di6" path="res://Arte/pj3.png" id="7_6iohk"]
 [ext_resource type="Texture2D" uid="uid://b88icavfsmnoy" path="res://Arte/pj4.png" id="8_7w1lh"]
 [ext_resource type="Texture2D" uid="uid://badtmgmsag2df" path="res://Arte/b1r2.png" id="9_poroo"]
+[ext_resource type="Texture2D" uid="uid://bw0j34fielmih" path="res://Arte/runanoluz.png" id="10_6iohk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kp5l5"]
 font_size = 61
@@ -45,10 +46,10 @@ flat = true
 
 [node name="Label" type="Label" parent="." unique_id=1973925597]
 layout_mode = 0
-offset_left = 129.0
-offset_top = 234.0
-offset_right = 948.405
-offset_bottom = 324.0
+offset_left = 146.0
+offset_top = 519.0
+offset_right = 965.405
+offset_bottom = 609.0
 text = "TIENDA"
 label_settings = SubResource("LabelSettings_kp5l5")
 horizontal_alignment = 1
@@ -93,15 +94,15 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("7_6iohk")
 
 [node name="Pj4" type="Sprite2D" parent="." unique_id=1078036890]
-position = Vector2(566, 857)
+position = Vector2(563, 859)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_7w1lh")
 
 [node name="ButtonPJ1" type="Button" parent="." unique_id=1196144321]
 layout_mode = 0
-offset_left = 445.0
+offset_left = 782.0
 offset_top = 977.0
-offset_right = 1253.0
+offset_right = 1590.0
 offset_bottom = 1785.0
 scale = Vector2(0.285, 0.25)
 icon = ExtResource("9_poroo")
@@ -119,12 +120,75 @@ flat = true
 
 [node name="ButtonPJ3" type="Button" parent="." unique_id=759325262]
 layout_mode = 0
-offset_left = 782.0
+offset_left = 440.0
 offset_top = 977.0
-offset_right = 1590.0
-offset_bottom = 1785.0005
+offset_right = 1248.0
+offset_bottom = 1785.0
 scale = Vector2(0.285, 0.25)
 icon = ExtResource("9_poroo")
 flat = true
+
+[node name="ButtonRunas1" type="Button" parent="." unique_id=2145627613]
+layout_mode = 0
+offset_left = 87.47
+offset_top = 1477.0
+offset_right = 895.47
+offset_bottom = 2285.0
+scale = Vector2(0.285, 0.25)
+icon = ExtResource("9_poroo")
+flat = true
+
+[node name="ButtonRunas2" type="Button" parent="." unique_id=391756588]
+layout_mode = 0
+offset_left = 439.99997
+offset_top = 1477.0
+offset_right = 1248.0
+offset_bottom = 2285.0
+scale = Vector2(0.285, 0.25)
+icon = ExtResource("9_poroo")
+flat = true
+
+[node name="ButtonRunas3" type="Button" parent="." unique_id=188483536]
+layout_mode = 0
+offset_left = 782.0
+offset_top = 1477.0
+offset_right = 1590.0
+offset_bottom = 2285.0
+scale = Vector2(0.285, 0.25)
+icon = ExtResource("9_poroo")
+flat = true
+
+[node name="Runa" type="Sprite2D" parent="." unique_id=1915059396]
+position = Vector2(201, 1380)
+texture = ExtResource("5_7381e")
+
+[node name="Runa2" type="Sprite2D" parent="." unique_id=1422648181]
+position = Vector2(540.005, 1371)
+texture = ExtResource("5_7381e")
+
+[node name="Runanoluz" type="Sprite2D" parent="Runa2" unique_id=776342872]
+position = Vector2(25.75, 25.625122)
+rotation = 0.3525565
+scale = Vector2(0.78728104, 0.76754445)
+texture = ExtResource("10_6iohk")
+
+[node name="Runa3" type="Sprite2D" parent="." unique_id=422907633]
+position = Vector2(898, 1367)
+scale = Vector2(1.1491228, 1.0847954)
+texture = ExtResource("5_7381e")
+
+[node name="Runanoluz3" type="Sprite2D" parent="Runa3" unique_id=733994355]
+position = Vector2(-23.496094, 24.889282)
+rotation = -0.14594479
+scale = Vector2(0.64196056, 0.60046)
+skew = 0.01569271
+texture = ExtResource("10_6iohk")
+
+[node name="Runanoluz2" type="Sprite2D" parent="Runa3" unique_id=1710812714]
+position = Vector2(25.123596, 23.967773)
+rotation = 0.4750758
+scale = Vector2(0.73945904, 0.7662584)
+skew = -0.045265317
+texture = ExtResource("10_6iohk")
 
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

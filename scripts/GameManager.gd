@@ -22,7 +22,7 @@ const CHARACTER_DATA = [
 		offset_proyectil = Vector2(55, -100),
 	},
 	{
-		name = "Mago",
+		name = "Asesino",
 		proyectil = preload("res://escenas/proyectil2.tscn"),
 		muerte = preload("res://escenas/muerte_jugador.tscn"),
 		velocidad = 600,
@@ -34,7 +34,7 @@ const CHARACTER_DATA = [
 		offset_proyectil = Vector2(55, -100),
 	},
 	{
-		name = "Luchador",
+		name = "Mago",
 		proyectil = preload("res://escenas/proyectil3.tscn"),
 		muerte = preload("res://escenas/muerte_jugador.tscn"),
 		velocidad = 750,
@@ -46,7 +46,7 @@ const CHARACTER_DATA = [
 		offset_proyectil = Vector2(60, -100),
 	},
 	{
-		name = "Artillero",
+		name = "Ronin",
 		proyectil = preload("res://escenas/proyectil4.tscn"),
 		muerte = preload("res://escenas/muerte_jugador.tscn"),
 		velocidad = 550,
@@ -59,7 +59,8 @@ const CHARACTER_DATA = [
 	},
 ]
 
-const PRECIO_PERSONAJES = [0, 50, 100, 200]
+const PRECIO_PERSONAJES = [0, 50, 0, 100]
+const PRECIO_RUNAS_PERSONAJES = [0, 0, 100, 0]
 
 const PAQUETES_RUNAS = [
 	{runas = 100, precio = "$1"},
@@ -76,17 +77,26 @@ func reset():
 
 func agregar_krit(cantidad := 1):
 	krits += cantidad
-	krits_totales += cantidad
+	krits_totales = mini(krits_totales + cantidad, 9999)
 
 func comprar_personaje(indice: int) -> bool:
 	if indice <= 0 or indice >= personajes_desbloqueados.size():
 		return false
 	if personajes_desbloqueados[indice]:
 		return false
-	var precio = PRECIO_PERSONAJES[indice]
-	if krits_totales < precio:
-		return false
-	krits_totales -= precio
+
+	var precio_krits = PRECIO_PERSONAJES[indice]
+	var precio_runas = PRECIO_RUNAS_PERSONAJES[indice]
+
+	if precio_krits > 0:
+		if krits_totales < precio_krits:
+			return false
+		krits_totales -= precio_krits
+	elif precio_runas > 0:
+		if runas < precio_runas:
+			return false
+		runas -= precio_runas
+
 	personajes_desbloqueados[indice] = true
 	guardar_datos()
 	return true
@@ -95,7 +105,7 @@ func comprar_runas(paquete_idx: int) -> bool:
 	if paquete_idx < 0 or paquete_idx >= PAQUETES_RUNAS.size():
 		return false
 	var paquete = PAQUETES_RUNAS[paquete_idx]
-	runas += paquete.runas
+	runas = mini(runas + paquete.runas, 9999)
 	guardar_datos()
 	return true
 

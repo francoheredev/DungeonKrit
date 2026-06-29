@@ -21,6 +21,11 @@ func _ready():
 	vida = vida_maxima
 	generar_criticos()
 
+func configurar_ruta(marker_a: Marker2D, marker_b: Marker2D):
+	marcadores = [marker_a, marker_b]
+	indice_actual = 0
+	global_position = marker_a.global_position
+
 func generar_criticos():
 	for i in cantidad_criticos:
 		var critico = escena_critico.instantiate()
