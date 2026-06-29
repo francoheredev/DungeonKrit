@@ -11,3 +11,27 @@ position = Vector2(880, 300)
 
 [node name="MarkerB" type="Marker2D" parent="Rutas/Ruta1"]
 position = Vector2(200, 1600)
+
+[node name="Ruta2" type="Node2D" parent="Rutas"]
+
+[node name="MarkerA" type="Marker2D" parent="Rutas/Ruta2"]
+position = Vector2(200, 300)
+
+[node name="MarkerB" type="Marker2D" parent="Rutas/Ruta2"]
+position = Vector2(880, 1600)
+
+[node name="Ruta3" type="Node2D" parent="Rutas"]
+
+[node name="MarkerA" type="Marker2D" parent="Rutas/Ruta3"]
+position = Vector2(540, 200)
+
+[node name="MarkerB" type="Marker2D" parent="Rutas/Ruta3"]
+position = Vector2(540, 1600)
+
+[node name="Ruta4" type="Node2D" parent="Rutas"]
+
+[node name="MarkerA" type="Marker2D" parent="Rutas/Ruta4"]
+position = Vector2(880, 900)
+
+[node name="MarkerB" type="Marker2D" parent="Rutas/Ruta4"]
+position = Vector2(200, 900)

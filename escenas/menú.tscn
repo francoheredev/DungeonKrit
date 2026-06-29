@@ -10,12 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bs0k1knk3a5u8" path="res://Arte/ChatGPT Image 23 jun 2026, 10_20_31 p.m..png" id="6_fjgg3"]
 [ext_resource type="Script" uid="uid://b6o2v0ywjj680" path="res://escenas/character_selector.gd" id="7_auxau"]
 [ext_resource type="Texture2D" uid="uid://dptrwajcb6j3f" path="res://Arte/runa.png" id="9_lgym5"]
+[ext_resource type="Texture2D" uid="uid://cflx2mq3q01ai" path="res://Arte/arrow ico.png" id="9_ohbm0"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_atte1"]
 load_path = "res://.godot/imported/achie ico.png-174f45c559a5faf27a22ff77f5271173.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qq6tx"]
-load_path = "res://.godot/imported/play ico.png-8aeba50fc4a73db1d34b1d9ad8848c04.ctex"
 
 [sub_resource type="LabelSettings" id="LabelSettings_65sl1"]
 font_size = 59
@@ -102,26 +100,24 @@ offset_bottom = 15.110001
 script = ExtResource("7_auxau")
 
 [node name="LeftButton" type="Button" parent="CharacterSelector" unique_id=81749259]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 383.00003
-offset_top = 1143.0001
-offset_right = 1191.0
-offset_bottom = 1951.0001
-rotation = 3.1415927
+offset_left = 213.525
+offset_top = 981.8901
+offset_right = 1021.525
+offset_bottom = 1789.8901
 scale = Vector2(0.165, 0.165)
-icon = SubResource("CompressedTexture2D_qq6tx")
+icon = ExtResource("9_ohbm0")
 flat = true
 
 [node name="RightButton" type="Button" parent="CharacterSelector" unique_id=1195496956]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 754.00006
-offset_top = 1011.00006
-offset_right = 1562.0
-offset_bottom = 1819.0
+offset_left = 925.52496
+offset_top = 1121.8901
+offset_right = 1733.5249
+offset_bottom = 1929.8901
+rotation = 3.1415927
 scale = Vector2(0.165, 0.165)
-icon = ExtResource("2_dmi2i")
+icon = ExtResource("9_ohbm0")
 flat = true
 
 [node name="CharacterImage" type="TextureRect" parent="CharacterSelector" unique_id=1309064060]

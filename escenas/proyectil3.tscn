@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c0proyectil03"]
+
+[ext_resource type="Texture2D" uid="uid://di7w1mwjodgo2" path="res://Arte/bala3.png" id="1_2mwwa"]
+[ext_resource type="Script" uid="uid://bsapweo5tjjid" path="res://scripts/proyectil.gd" id="1_y2gxt"]
+[ext_resource type="PackedScene" uid="uid://c0i6x6ulywhov" path="res://escenas/impacto.tscn" id="2_cxetq"]
+[ext_resource type="PackedScene" uid="uid://c1bn2ma8cstw5" path="res://escenas/impacto_critico.tscn" id="3_7j1yi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mwwa"]
+size = Vector2(55, 130)
+
+[node name="Area2D" type="Area2D"]
+light_mask = 3
+visibility_layer = 3
+z_index = -1
+scale = Vector2(0.67, 0.67)
+script = ExtResource("1_y2gxt")
+escena_impacto = ExtResource("2_cxetq")
+escena_impacto_critico = ExtResource("3_7j1yi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2mwwa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_2mwwa")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

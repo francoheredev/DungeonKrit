@@ -214,29 +214,38 @@ func generar_boss(sala):
 	spawn_enemigo_con_telegraph(marker_a, marker_b, escena, _sombra_boss(), true)
 
 func spawn_enemigo_con_telegraph(marker_a, marker_b, escena_enemigo, escena_sombra, es_boss := false):
+	var empieza_en_b := false
+	if ciclo_actual >= 3:
+		empieza_en_b = randi() % 2 == 0
+
+	var posicion_spawn = marker_b.global_position if empieza_en_b else marker_a.global_position
+
 	var sombra = escena_sombra.instantiate()
 	sala_actual_node.add_child(sombra)
-	sombra.global_position = marker_a.global_position
+	sombra.global_position = posicion_spawn
 	sombra.scale = Vector2.ZERO
 
 	var tween = get_tree().create_tween()
 	tween.tween_property(sombra, "scale", Vector2(1, 1), tiempo_telegraph)
 
-	call_deferred("_finalizar_spawn", marker_a, marker_b, sombra, escena_enemigo, es_boss)
+	# offset de indice si empieza en B
+	var indice_inicial = 1 if empieza_en_b else 0
+	call_deferred("_finalizar_spawn", marker_a, marker_b, sombra, escena_enemigo, es_boss, indice_inicial)
 
-func _finalizar_spawn(marker_a, marker_b, sombra, escena_enemigo, es_boss):
+func _finalizar_spawn(marker_a, marker_b, sombra, escena_enemigo, es_boss, indice_inicial := 0):
 	await get_tree().create_timer(tiempo_telegraph).timeout
 
 	var enemigo = escena_enemigo.instantiate()
 	sala_actual_node.add_child(enemigo)
-	enemigo.global_position = marker_a.global_position
 	enemigo.add_to_group("enemigos")
 
 	if enemigo.has_method("configurar_ruta") and ciclo_actual >= 3:
 		enemigo.configurar_ruta(marker_a, marker_b)
-		if randi() % 2 == 0:
-			enemigo.indice_actual = 1
+		enemigo.indice_actual = indice_inicial
+		if indice_inicial == 1:
 			enemigo.global_position = marker_b.global_position
+	else:
+		enemigo.global_position = marker_a.global_position
 
 	if ciclo_actual >= 3:
 		var factor = 1.0 + (ciclo_actual - 2) * 0.08

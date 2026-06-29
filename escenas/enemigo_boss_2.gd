@@ -8,7 +8,7 @@ extends Area2D
 @export var radio_criticos := 208
 @export var escena_muerte: PackedScene
 @export var escena_muerte_critica: PackedScene
-@export var vida_maxima: int = 150
+@export var vida_maxima: int = 60
 
 var vida: int
 var shake_strength := 0.0
