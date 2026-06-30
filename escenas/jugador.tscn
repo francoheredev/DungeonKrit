@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://djhne4wwh3nx3" path="res://scripts/jugador.gd" id="1_jpodt"]
 [ext_resource type="Texture2D" uid="uid://bqnraiygqw2hp" path="res://Arte/pj1.png" id="2_jpodt"]
-[ext_resource type="PackedScene" uid="uid://c0fyf146f477b" path="res://escenas/proyectil.tscn" id="2_njcx7"]
+[ext_resource type="PackedScene" path="res://escenas/proyectil.tscn" id="2_njcx7"]
 [ext_resource type="PackedScene" uid="uid://t4nfmaofj6qn" path="res://escenas/muerte_jugador.tscn" id="3_xutah"]
 [ext_resource type="Texture2D" uid="uid://30whjsiyewyv" path="res://Arte/pj1sss.png" id="4_ovq70"]
-[ext_resource type="Resource" path="res://escenas/pj2_sprite_frames.tres" id="5_pj2sf"]
-[ext_resource type="Resource" path="res://escenas/pj3_sprite_frames.tres" id="6_pj3sf"]
-[ext_resource type="Resource" path="res://escenas/pj4_sprite_frames.tres" id="7_pj4sf"]
+[ext_resource type="SpriteFrames" uid="uid://cxbdis0s4fqer" path="res://escenas/pj2_sprite_frames.tres" id="5_pj2sf"]
+[ext_resource type="SpriteFrames" uid="uid://ceyh8pocf3adi" path="res://escenas/pj3_sprite_frames.tres" id="6_pj3sf"]
+[ext_resource type="SpriteFrames" uid="uid://ceyh8pocf3adj" path="res://escenas/pj4_sprite_frames.tres" id="7_pj4sf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_as36m"]
 atlas = ExtResource("4_ovq70")
@@ -220,15 +220,17 @@ position = Vector2(506, 1685)
 script = ExtResource("1_jpodt")
 escena_proyectil = ExtResource("2_njcx7")
 escena_muerte = ExtResource("3_xutah")
-opciones_sprite_frames = [SubResource("SpriteFrames_0akns"), ExtResource("5_pj2sf"), ExtResource("6_pj3sf"), ExtResource("7_pj4sf")]
+opciones_sprite_frames = Array[SpriteFrames]([SubResource("SpriteFrames_0akns"), ExtResource("5_pj2sf"), ExtResource("6_pj3sf"), ExtResource("7_pj4sf")])
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1109144697]
+visible = false
 position = Vector2(28, -32)
 sprite_frames = SubResource("SpriteFrames_0akns")
 animation = &"idle"
+frame = 4
+frame_progress = 0.26287052
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=803884170]
-visible = false
 position = Vector2(28, -32)
 sprite_frames = SubResource("SpriteFrames_jpodt")
 frame_progress = 0.4031711
@@ -256,5 +258,3 @@ shape = SubResource("CircleShape2D_jpodt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617015700]
 position = Vector2(16, 19)
 shape = SubResource("RectangleShape2D_jpodt")
-
-
