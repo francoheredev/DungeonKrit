@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cbksiqwpmq2sk"]
+
+[ext_resource type="Texture2D" uid="uid://bqnraiygqw2hp" path="res://Arte/pj1.png" id="1"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

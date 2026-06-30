@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c0fyf146f477b" path="res://escenas/proyectil.tscn" id="2_njcx7"]
 [ext_resource type="PackedScene" uid="uid://t4nfmaofj6qn" path="res://escenas/muerte_jugador.tscn" id="3_xutah"]
 [ext_resource type="Texture2D" uid="uid://30whjsiyewyv" path="res://Arte/pj1sss.png" id="4_ovq70"]
+[ext_resource type="Resource" uid="uid://pj1spriteframes" path="res://escenas/pj1_sprite_frames.tres" id="8_pj1sf"]
 [ext_resource type="Resource" path="res://escenas/pj2_sprite_frames.tres" id="5_pj2sf"]
 [ext_resource type="Resource" path="res://escenas/pj3_sprite_frames.tres" id="6_pj3sf"]
 [ext_resource type="Resource" path="res://escenas/pj4_sprite_frames.tres" id="7_pj4sf"]
@@ -220,11 +221,11 @@ position = Vector2(506, 1685)
 script = ExtResource("1_jpodt")
 escena_proyectil = ExtResource("2_njcx7")
 escena_muerte = ExtResource("3_xutah")
-opciones_sprite_frames = [SubResource("SpriteFrames_0akns"), ExtResource("5_pj2sf"), ExtResource("6_pj3sf"), ExtResource("7_pj4sf")]
+opciones_sprite_frames = [ExtResource("8_pj1sf"), ExtResource("5_pj2sf"), ExtResource("6_pj3sf"), ExtResource("7_pj4sf")]
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1109144697]
 position = Vector2(28, -32)
-sprite_frames = SubResource("SpriteFrames_0akns")
+sprite_frames = ExtResource("8_pj1sf")
 animation = &"idle"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=803884170]
