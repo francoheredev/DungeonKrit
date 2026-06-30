@@ -127,4 +127,5 @@ func _comprar_runas(paquete_idx: int):
 	GameManager.comprar_runas(paquete_idx)
 
 func _on_menu_button_pressed():
+	AudioManager.play_menu_regresar()
 	get_tree().change_scene_to_file("res://escenas/menú.tscn")

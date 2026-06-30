@@ -79,6 +79,7 @@ func shake(intensidad := 8.0):
 
 func recibir_dano(cantidad: int, es_critico := false):
 	vida -= cantidad
+	AudioManager.play_dano_enemigo()
 	if vida <= 0:
 		morir(es_critico)
 	elif not en_rabia and vida <= vida_maxima * 0.5:
@@ -86,8 +87,8 @@ func recibir_dano(cantidad: int, es_critico := false):
 		shake_strength = 20.0
 
 func morir(es_critico := false):
-	GameManager.kills += 1
-	GameManager.puntos += 500
+	AudioManager.play_muerte_enemigo()
+	GameManager.registrar_muerte_boss()
 
 	if es_critico:
 		crear_efecto_muerte_critica()

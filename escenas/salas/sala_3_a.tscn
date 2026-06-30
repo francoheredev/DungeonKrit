@@ -10,7 +10,7 @@
 position = Vector2(194, 518)
 
 [node name="MarkerB" type="Marker2D" parent="Rutas/Ruta1" unique_id=1650660659]
-position = Vector2(196, 1138)
+position = Vector2(350, 950)
 
 [node name="Ruta2" type="Node2D" parent="Rutas" unique_id=1099228650]
 
@@ -23,7 +23,7 @@ position = Vector2(574, 811)
 [node name="Ruta3" type="Node2D" parent="Rutas" unique_id=510865285]
 
 [node name="MarkerA" type="Marker2D" parent="Rutas/Ruta3" unique_id=66250830]
-position = Vector2(877, 1758)
+position = Vector2(700, 1000)
 
 [node name="MarkerB" type="Marker2D" parent="Rutas/Ruta3" unique_id=1805693725]
-position = Vector2(590, 1260)
+position = Vector2(590, 1050)

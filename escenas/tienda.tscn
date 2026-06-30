@@ -10,12 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://b88icavfsmnoy" path="res://Arte/pj4.png" id="8_7w1lh"]
 [ext_resource type="Texture2D" uid="uid://badtmgmsag2df" path="res://Arte/b1r2.png" id="9_poroo"]
 [ext_resource type="Texture2D" uid="uid://bw0j34fielmih" path="res://Arte/runanoluz.png" id="10_6iohk"]
+[ext_resource type="Texture2D" uid="uid://eyc1g1nuf166" path="res://Arte/krits.png" id="11_7w1lh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kp5l5"]
 font_size = 61
 
 [sub_resource type="LabelSettings" id="LabelSettings_7c0fu"]
 font_size = 59
+
+[sub_resource type="LabelSettings" id="LabelSettings_poroo"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bbqv"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_2d5a0"]
+font_size = 60
 
 [node name="Tienda" type="Control" unique_id=1688715466]
 layout_mode = 3
@@ -47,9 +57,9 @@ flat = true
 [node name="Label" type="Label" parent="." unique_id=1973925597]
 layout_mode = 0
 offset_left = 146.0
-offset_top = 519.0
+offset_top = 455.0
 offset_right = 965.405
-offset_bottom = 609.0
+offset_bottom = 545.0
 text = "TIENDA"
 label_settings = SubResource("LabelSettings_kp5l5")
 horizontal_alignment = 1
@@ -190,5 +200,103 @@ rotation = 0.4750758
 scale = Vector2(0.73945904, 0.7662584)
 skew = -0.045265317
 texture = ExtResource("10_6iohk")
+
+[node name="Krits2" type="Sprite2D" parent="." unique_id=750719870]
+position = Vector2(162, 1076.75)
+scale = Vector2(0.5614035, 0.5994152)
+texture = ExtResource("11_7w1lh")
+
+[node name="Krits3" type="Sprite2D" parent="." unique_id=186329781]
+position = Vector2(514, 1076.75)
+scale = Vector2(0.5614035, 0.5994152)
+texture = ExtResource("11_7w1lh")
+
+[node name="Runanoluz" type="Sprite2D" parent="." unique_id=119048859]
+position = Vector2(849.9999, 1075.5)
+scale = Vector2(0.5877193, 0.49707642)
+texture = ExtResource("10_6iohk")
+
+[node name="Label2" type="Label" parent="." unique_id=1178973872]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 1030.0
+offset_right = 268.0
+offset_bottom = 1113.0
+text = "50"
+label_settings = SubResource("LabelSettings_poroo")
+
+[node name="Label3" type="Label" parent="." unique_id=1350665848]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 1029.0
+offset_right = 975.0
+offset_bottom = 1198.0
+text = "100
+"
+label_settings = SubResource("LabelSettings_1bbqv")
+
+[node name="Label4" type="Label" parent="." unique_id=1790167238]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 1030.0
+offset_right = 640.0
+offset_bottom = 1113.0
+text = "100"
+label_settings = SubResource("LabelSettings_2d5a0")
+
+[node name="Label5" type="Label" parent="." unique_id=225184777]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 1530.0
+offset_right = 280.0
+offset_bottom = 1613.0
+text = "5 usd"
+label_settings = SubResource("LabelSettings_poroo")
+
+[node name="Label6" type="Label" parent="." unique_id=1444111799]
+layout_mode = 0
+offset_left = 802.0
+offset_top = 1529.0
+offset_right = 991.0
+offset_bottom = 1698.0
+text = "25 usd
+"
+label_settings = SubResource("LabelSettings_1bbqv")
+
+[node name="Label7" type="Label" parent="." unique_id=1969466469]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 1530.0
+offset_right = 646.0
+offset_bottom = 1613.0
+text = "10 usd"
+label_settings = SubResource("LabelSettings_2d5a0")
+
+[node name="Label8" type="Label" parent="." unique_id=1178273208]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 1417.0
+offset_right = 251.0
+offset_bottom = 1500.0
+text = "100"
+label_settings = SubResource("LabelSettings_poroo")
+
+[node name="Label9" type="Label" parent="." unique_id=2119658779]
+layout_mode = 0
+offset_left = 828.0
+offset_top = 1417.0
+offset_right = 965.0
+offset_bottom = 1500.0
+text = "1000"
+label_settings = SubResource("LabelSettings_poroo")
+
+[node name="Label10" type="Label" parent="." unique_id=2121600476]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 1417.0
+offset_right = 598.0
+offset_bottom = 1500.0
+text = "500"
+label_settings = SubResource("LabelSettings_poroo")
 
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

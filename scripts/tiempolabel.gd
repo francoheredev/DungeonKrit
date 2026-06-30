@@ -20,8 +20,8 @@ func _process(_delta):
 
 func _on_pausa_button_pressed():
 	get_tree().paused = true
-	$MenuPausa.visible = true
 	$PausaButton.visible = false
+	$MenuPausa._mostrar()
 
 func _on_tiempo_timer_timeout():
 	tiempo += 1

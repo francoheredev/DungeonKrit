@@ -26,4 +26,4 @@ position = Vector2(200, 800)
 position = Vector2(540, 900)
 
 [node name="MarkerB" type="Marker2D" parent="Rutas/Ruta3"]
-position = Vector2(540, 1700)
+position = Vector2(540, 1150)

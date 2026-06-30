@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddpx6ah1ia0nn"
+path="res://.godot/imported/muerte enemigo.wav-8ad93f8c1f09a148ac9bd763aff4ccaf.sample"
+
+[deps]
+
+source_file="res://audios dk/Gameplay/muerte enemigo.wav"
+dest_files=["res://.godot/imported/muerte enemigo.wav-8ad93f8c1f09a148ac9bd763aff4ccaf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

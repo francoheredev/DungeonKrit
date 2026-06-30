@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://logroitem"]
+
+[ext_resource type="Texture2D" uid="uid://fy2wn6xsw55l" path="res://Arte/rombo.png" id="1_rombo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nombre"]
+font_size = 74
+
+[sub_resource type="LabelSettings" id="LabelSettings_desc"]
+font_size = 58
+
+[sub_resource type="LabelSettings" id="LabelSettings_estado"]
+font_size = 78
+
+
+
+[node name="LogroItem" type="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Estado" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+custom_minimum_size = Vector2(80, 0)
+text = "✓"
+label_settings = SubResource("LabelSettings_estado")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Nombre" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Nombre del logro"
+label_settings = SubResource("LabelSettings_nombre")
+horizontal_alignment = 0
+
+[node name="Descripcion" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Descripción del logro"
+label_settings = SubResource("LabelSettings_desc")
+horizontal_alignment = 0
+
+[node name="Barra" type="Control" parent="VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 48)
+size_flags_horizontal = 3
+
+[node name="Bg" type="ColorRect" parent="VBox/Barra"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 14.0
+anchor_right = 1.0
+offset_right = -60.0
+offset_bottom = 34.0
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Fill" type="ColorRect" parent="VBox/Barra"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 14.0
+offset_right = 60.0
+offset_bottom = 34.0
+color = Color(1, 1, 1, 1)
+
+[node name="Rombo" type="Sprite2D" parent="."]
+position = Vector2(0, 0)
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("1_rombo")

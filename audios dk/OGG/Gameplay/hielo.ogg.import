@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cha6bxo5384q3"
+path="res://.godot/imported/hielo.ogg-928b739ee11f11712f29f457fe8ed691.oggvorbisstr"
+
+[deps]
+
+source_file="res://audios dk/OGG/Gameplay/hielo.ogg"
+dest_files=["res://.godot/imported/hielo.ogg-928b739ee11f11712f29f457fe8ed691.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

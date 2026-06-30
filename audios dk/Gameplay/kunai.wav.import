@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2gits6gy32k"
+path="res://.godot/imported/kunai.wav-7f1d301f74562787d8ccd2d0e4c9088a.sample"
+
+[deps]
+
+source_file="res://audios dk/Gameplay/kunai.wav"
+dest_files=["res://.godot/imported/kunai.wav-7f1d301f74562787d8ccd2d0e4c9088a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

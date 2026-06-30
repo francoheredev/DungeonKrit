@@ -14,12 +14,15 @@ var inicio_toque: Vector2 = Vector2.ZERO
 var direccion: Vector2 = Vector2.ZERO
 var vivo: bool = true
 var puede_disparar: bool = true
+var invulnerable := false
+var posicion_inicial: Vector2
 
 @onready var radio_vision = $radio_vision
 @onready var hitbox = $Hitbox
 
 
 func _ready():
+	posicion_inicial = global_position
 	var idx = GameManager.selected_character
 	var data = GameManager.CHARACTER_DATA[idx]
 
@@ -110,6 +113,12 @@ func disparar():
 	flecha.velocidad = data.velocidad_proyectil
 	flecha.distancia_maxima = data.distancia_maxima_proyectil
 
+	match GameManager.selected_character:
+		0: AudioManager.play_arco()
+		1: AudioManager.play_kunai()
+		2: AudioManager.play_hielo()
+		3: AudioManager.play_cuchi()
+
 	await get_tree().create_timer(cooldown_disparo).timeout
 
 	if vivo:
@@ -117,6 +126,8 @@ func disparar():
 
 
 func _detectar_colision_enemigo():
+	if invulnerable:
+		return
 	for area in hitbox.get_overlapping_areas():
 		if area.is_in_group("enemigos"):
 			die()
@@ -128,6 +139,7 @@ func die():
 		return
 
 	vivo = false
+	AudioManager.play_muerte_pj()
 	tocando = false
 	puede_disparar = false
 
@@ -144,4 +156,16 @@ func die():
 	print("¡El jugador ha muerto!")
 
 	await get_tree().create_timer(1.0).timeout
-	get_tree().reload_current_scene()
+
+	var overlay = get_node("../CanvasLayer/ReviveOverlay")
+	if overlay and overlay.has_method("mostrar"):
+		overlay.mostrar()
+
+func revivir():
+	vivo = true
+	visible = true
+	puede_disparar = true
+	invulnerable = true
+	global_position = posicion_inicial
+	await get_tree().create_timer(1.5).timeout
+	invulnerable = false

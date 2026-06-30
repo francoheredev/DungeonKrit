@@ -3,14 +3,18 @@ extends Control
 func _ready():
 	visible = false
 
+func _mostrar():
+	visible = true
+	$"../BlurOverlay".visible = true
+
+func _ocultar():
+	visible = false
+	$"../BlurOverlay".visible = false
+
 func _on_continuar_button_pressed():
 	get_tree().paused = false
-	visible = false
+	_ocultar()
 	$"../PausaButton".visible = true
-
-func _on_reiniciar_button_pressed():
-	get_tree().paused = false
-	get_tree().reload_current_scene()
 
 func _on_menu_button_pressed():
 	get_tree().paused = false

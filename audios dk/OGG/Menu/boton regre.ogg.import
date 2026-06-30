@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://f5uo2v6ich4t"
+path="res://.godot/imported/boton regre.ogg-dfd9d723bc6802050696d89a0aa00f56.oggvorbisstr"
+
+[deps]
+
+source_file="res://audios dk/OGG/Menu/boton regre.ogg"
+dest_files=["res://.godot/imported/boton regre.ogg-dfd9d723bc6802050696d89a0aa00f56.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -10,20 +10,20 @@
 [ext_resource type="Script" uid="uid://co8o0712n72ww" path="res://scripts/tiempolabel.gd" id="5_nia68"]
 [ext_resource type="Script" uid="uid://cswqwpipblbwr" path="res://scripts/menu_pausa.gd" id="6_nia68"]
 [ext_resource type="PackedScene" uid="uid://b7f8g4u570pqq" path="res://escenas/sombra_enemigo_1.tscn" id="6_torkp"]
-[ext_resource type="Texture2D" uid="uid://c67llqur2flrp" path="res://Arte/config ico.png" id="10_torkp"]
 [ext_resource type="PackedScene" uid="uid://crbiay1i4cdp5" path="res://escenas/salas/sala_b.tscn" id="11_abcde"]
 [ext_resource type="PackedScene" uid="uid://crbiay1j4cdp5" path="res://escenas/salas/sala_c.tscn" id="12_abcde"]
 [ext_resource type="PackedScene" uid="uid://b53whmejbl25i" path="res://escenas/salas/sala_boss_1.tscn" id="13_abcde"]
 [ext_resource type="PackedScene" uid="uid://daejruml2atds" path="res://escenas/enemigo_boss.tscn" id="14_abcde"]
 [ext_resource type="PackedScene" uid="uid://b53whmskcdc5i" path="res://escenas/sombra_boss.tscn" id="15_abcde"]
-[ext_resource type="PackedScene" path="res://escenas/enemigo2.tscn" id="16_abcde"]
-[ext_resource type="PackedScene" path="res://escenas/salas/sala_d.tscn" id="18_abcde"]
-[ext_resource type="PackedScene" path="res://escenas/salas/sala_e.tscn" id="19_abcde"]
-[ext_resource type="PackedScene" path="res://escenas/enemigo_boss2.tscn" id="20_abcde"]
-[ext_resource type="PackedScene" path="res://escenas/salas/sala_boss_2.tscn" id="21_abcde"]
+[ext_resource type="PackedScene" uid="uid://baaud7vpi7ypd" path="res://escenas/enemigo2.tscn" id="16_abcde"]
+[ext_resource type="PackedScene" uid="uid://crbiay1k4cdp5" path="res://escenas/salas/sala_d.tscn" id="18_abcde"]
+[ext_resource type="PackedScene" uid="uid://baaud7uy460er" path="res://escenas/enemigo_boss2.tscn" id="20_abcde"]
+[ext_resource type="PackedScene" uid="uid://b53whmejbl25j" path="res://escenas/salas/sala_boss_2.tscn" id="21_abcde"]
 [ext_resource type="Texture2D" uid="uid://drufshtguugx6" path="res://Arte/bg2 fr.png" id="22_abcde"]
-[ext_resource type="PackedScene" path="res://escenas/sombra_enemigo_2.tscn" id="23_abcde"]
-[ext_resource type="PackedScene" path="res://escenas/sombra_boss_2.tscn" id="24_abcde"]
+[ext_resource type="Texture2D" uid="uid://j1tbfmj8cxxe" path="res://Arte/pause ico.png" id="22_fwn0h"]
+[ext_resource type="PackedScene" uid="uid://dpawuutk5fj4h" path="res://escenas/sombra_enemigo_2.tscn" id="23_abcde"]
+[ext_resource type="PackedScene" uid="uid://1vp5e684xstp" path="res://escenas/sombra_boss_2.tscn" id="24_abcde"]
+[ext_resource type="PackedScene" path="res://escenas/revive_overlay.tscn" id="25_abcde"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jg4y2"]
 font_size = 83
@@ -97,15 +97,15 @@ position = Vector2(-1, 0)
 
 [node name="DungeonManager" type="Node" parent="." unique_id=773132345 groups=["dungeon_manager"]]
 script = ExtResource("1_sjk1h")
-salas_pool_a = [ExtResource("2_dss0o"), ExtResource("3_33esw"), ExtResource("4_torkp")]
-salas_pool_b = [ExtResource("11_abcde"), ExtResource("12_abcde"), ExtResource("18_abcde")]
-salas_boss_a = [ExtResource("13_abcde")]
-salas_boss_b = [ExtResource("21_abcde")]
-escenas_enemigo_a = [ExtResource("3_1m2o7")]
-escenas_enemigo_b = [ExtResource("16_abcde")]
-escenas_boss_a = [ExtResource("14_abcde")]
-escenas_boss_b = [ExtResource("20_abcde")]
-fondos = [ExtResource("1_1m2o7"), ExtResource("22_abcde")]
+salas_pool_a = Array[PackedScene]([ExtResource("2_dss0o"), ExtResource("3_33esw"), ExtResource("4_torkp")])
+salas_pool_b = Array[PackedScene]([ExtResource("11_abcde"), ExtResource("12_abcde"), ExtResource("18_abcde")])
+salas_boss_a = Array[PackedScene]([ExtResource("13_abcde")])
+salas_boss_b = Array[PackedScene]([ExtResource("21_abcde")])
+escenas_enemigo_a = Array[PackedScene]([ExtResource("3_1m2o7")])
+escenas_enemigo_b = Array[PackedScene]([ExtResource("16_abcde")])
+escenas_boss_a = Array[PackedScene]([ExtResource("14_abcde")])
+escenas_boss_b = Array[PackedScene]([ExtResource("20_abcde")])
+fondos = Array[Texture2D]([ExtResource("1_1m2o7"), ExtResource("22_abcde")])
 escena_sombra_a = ExtResource("6_torkp")
 escena_sombra_b = ExtResource("23_abcde")
 escena_sombra_boss_a = ExtResource("15_abcde")
@@ -161,12 +161,24 @@ text = "Krits: 0"
 label_settings = SubResource("LabelSettings_sjk1h")
 
 [node name="PausaButton" type="Button" parent="CanvasLayer" unique_id=1243000211]
-offset_left = 966.0
-offset_top = 1800.0
-offset_right = 1774.0
-offset_bottom = 2608.0
+offset_left = 958.99994
+offset_top = 1794.0
+offset_right = 1767.0
+offset_bottom = 2602.0
 scale = Vector2(0.115, 0.115)
-icon = ExtResource("10_torkp")
+icon = ExtResource("22_fwn0h")
+flat = true
+
+[node name="BlurOverlay" type="ColorRect" parent="CanvasLayer"]
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1080.0
+offset_bottom = 1920.0
+color = Color(0, 0, 0, 0.6)
+mouse_filter = 2
 
 [node name="MenuPausa" type="Control" parent="CanvasLayer" unique_id=1466173383]
 process_mode = 2
@@ -186,23 +198,16 @@ offset_right = 685.0
 offset_bottom = 844.0
 text = "CONTINUAR"
 
-[node name="ReiniciarButton" type="Button" parent="CanvasLayer/MenuPausa" unique_id=2023191131]
-process_mode = 2
-layout_mode = 0
-offset_left = 365.0
-offset_top = 882.0
-offset_right = 682.0
-offset_bottom = 1058.0
-text = "REINICIAR"
-
 [node name="MenuButton" type="Button" parent="CanvasLayer/MenuPausa" unique_id=1495068139]
 process_mode = 2
 layout_mode = 0
-offset_left = 366.0
-offset_top = 1115.0
-offset_right = 684.0
-offset_bottom = 1293.0
+offset_left = 365.0
+offset_top = 900.0
+offset_right = 685.0
+offset_bottom = 1070.0
 text = "MENÚ"
+
+[node name="ReviveOverlay" parent="CanvasLayer" instance=ExtResource("25_abcde")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1301647209]
 tile_map_data = PackedByteArray("AAD//wAABQABAAIAAAD//wEABQABAAIAAAD//wIABQABAAIAAAD//wMABQABAAIAAAD//wQABQABAAIAAAD//wUABQABAAIAAAD//wYABQABAAIAAAD//wcABQABAAIAAAD//wgABQABAAIAAAD//wkABQABAAIAAAAAAAkABQABAAIAAAABAAkABQABAAIAAAACAAkABQABAAIAAAADAAkABQABAAIAAAAEAAkABQABAAIAAAAFAAkABQABAAIAAAAFAAgABQABAAIAAAAFAAcABQABAAIAAAAFAAYABQABAAIAAAAFAAUABQABAAIAAAAFAAQABQABAAIAAAAFAAMABQABAAIAAAAFAAIABQABAAIAAAAFAAEABQABAAIAAAAFAAAABQABAAIAAAAFAP//BQABAAIAAAD/////BQABAAIAAAAAAP//BQABAAIAAAABAP//BQABAAIAAAACAP//BQABAAIAAAADAP//BQABAAIAAAAEAP//BQABAAIAAAA=")
@@ -211,5 +216,4 @@ tile_set = SubResource("TileSet_torkp")
 [connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer" method="_on_tiempo_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/PausaButton" to="CanvasLayer" method="_on_pausa_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuPausa/ContinuarButton" to="CanvasLayer/MenuPausa" method="_on_continuar_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MenuPausa/ReiniciarButton" to="CanvasLayer/MenuPausa" method="_on_reiniciar_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MenuPausa/MenuButton" to="CanvasLayer/MenuPausa" method="_on_menu_button_pressed"]

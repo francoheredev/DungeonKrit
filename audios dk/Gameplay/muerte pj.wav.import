@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bm4rvqf6it0ma"
+path="res://.godot/imported/muerte pj.wav-204b23f39fac426d055b7faee0381f93.sample"
+
+[deps]
+
+source_file="res://audios dk/Gameplay/muerte pj.wav"
+dest_files=["res://.godot/imported/muerte pj.wav-204b23f39fac426d055b7faee0381f93.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

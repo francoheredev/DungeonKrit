@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8h32tuxvag4y"
+path="res://.godot/imported/boton regre.wav-1d02912b7e90051aed6be4826485ecc1.sample"
+
+[deps]
+
+source_file="res://audios dk/Menu/boton regre.wav"
+dest_files=["res://.godot/imported/boton regre.wav-1d02912b7e90051aed6be4826485ecc1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

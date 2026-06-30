@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://pcwtc3c0bavp"
+path="res://.godot/imported/muerte enemigo.ogg-5820f0624b38e2db8b78ce424b0eb51d.oggvorbisstr"
+
+[deps]
+
+source_file="res://audios dk/OGG/Gameplay/muerte enemigo.ogg"
+dest_files=["res://.godot/imported/muerte enemigo.ogg-5820f0624b38e2db8b78ce424b0eb51d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0x38a5ik04ls"
+path="res://.godot/imported/cuchi.ogg-6d2aea4befa190ffa042ab0f3eeb4629.oggvorbisstr"
+
+[deps]
+
+source_file="res://audios dk/OGG/Gameplay/cuchi.ogg"
+dest_files=["res://.godot/imported/cuchi.ogg-6d2aea4befa190ffa042ab0f3eeb4629.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

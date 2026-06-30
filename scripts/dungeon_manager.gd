@@ -78,6 +78,11 @@ func siguiente_sala():
 		posicion_en_ciclo = 0
 		ciclo_actual += 1
 		cambiar_fondo_segun_tema()
+		GameManager.actualizar_ciclo(ciclo_actual)
+		if ciclo_actual >= 5:
+			GameManager.verificar_logro("superviviente")
+		if ciclo_actual >= 10:
+			GameManager.verificar_logro("amo_mazmorra")
 	cargar_sala()
 
 func cargar_sala():
