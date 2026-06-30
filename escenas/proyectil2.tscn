@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://c0fyf146f477c"]
+[gd_scene format=3 uid="uid://buhr6q45encnl"]
 
 [ext_resource type="Texture2D" uid="uid://bn0dyjmroo2s5" path="res://Arte/bala2.png" id="1_2mwwa"]
-[ext_resource type="Script" uid="uid://cilso4bdwkqlb" path="res://scripts/proyectil.gd" id="1_y2gxt"]
+[ext_resource type="Script" uid="uid://cyj54nreg6er0" path="res://scripts/proyectil.gd" id="1_y2gxt"]
 [ext_resource type="PackedScene" uid="uid://c0i6x6ulywhov" path="res://escenas/impacto.tscn" id="2_cxetq"]
 [ext_resource type="PackedScene" uid="uid://c1bn2ma8cstw5" path="res://escenas/impacto_critico.tscn" id="3_7j1yi"]
 

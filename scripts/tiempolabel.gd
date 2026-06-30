@@ -30,3 +30,4 @@ func _on_tiempo_timer_timeout():
 	var segundos = tiempo % 60
 
 	tiempo_label.text = "%02d:%02d" % [minutos, segundos]
+	GameManager.actualizar_tiempo(1.0)

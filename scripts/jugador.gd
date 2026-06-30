@@ -114,7 +114,18 @@ func disparar():
 	flecha.distancia_maxima = data.distancia_maxima_proyectil
 
 	match GameManager.selected_character:
-		0: AudioManager.play_arco()
+		0:
+			AudioManager.play_arco()
+			var pasiva = data.pasiva
+			if pasiva.id == "doble_disparo" and randf() < pasiva.prob:
+				var extra = escena_proyectil.instantiate()
+				get_parent().add_child(extra)
+				extra.global_position = flecha.global_position
+				extra.global_rotation = flecha.global_rotation + deg_to_rad(12.0)
+				extra.direccion = Vector2.UP.rotated(extra.global_rotation)
+				extra.dano = data.dano
+				extra.velocidad = data.velocidad_proyectil
+				extra.distancia_maxima = data.distancia_maxima_proyectil
 		1: AudioManager.play_kunai()
 		2: AudioManager.play_hielo()
 		3: AudioManager.play_cuchi()
@@ -139,6 +150,7 @@ func die():
 		return
 
 	vivo = false
+	GameManager.registrar_muerte_jugador()
 	AudioManager.play_muerte_pj()
 	tocando = false
 	puede_disparar = false

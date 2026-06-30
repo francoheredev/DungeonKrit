@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_boss2"]
 radius = 207.00241
 
-[node name="EnemigoBoss2" type="Area2D" unique_id=1016825479 groups=["enemigos"]]
+[node name="EnemigoBoss2" type="Area2D" unique_id=1016825479 groups=["enemigos", "bosses"]]
 collision_layer = 3
 collision_mask = 2
 script = ExtResource("1_4syea")

@@ -84,14 +84,34 @@ func shake(intensidad := 8.0):
 
 
 func recibir_dano(cantidad: int, es_critico := false):
+	var personaje = GameManager.selected_character
+	var data = GameManager.CHARACTER_DATA[personaje]
+
+	if es_critico and personaje == 1:
+		cantidad = int(cantidad * data.pasiva.multiplicador)
+
 	vida -= cantidad
 	AudioManager.play_dano_enemigo()
 
 	if vida <= 0:
 		morir(es_critico)
+		return
+
+	if not es_critico and personaje == 2:
+		var pasiva = data.pasiva
+		if randf() < pasiva.prob:
+			congelar(pasiva.duracion)
+			GameManager.registrar_congelado()
+
+	if not es_critico and personaje == 3:
+		var pasiva = data.pasiva
+		if randf() < pasiva.prob:
+			morir(false, true)
 
 
-func morir(es_critico := false):
+func morir(es_critico := false, ejecutado := false):
+	if ejecutado:
+		GameManager.registrar_ejecucion()
 	AudioManager.play_muerte_enemigo()
 	GameManager.registrar_muerte_enemigo()
 

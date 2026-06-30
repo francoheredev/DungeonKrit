@@ -2,12 +2,33 @@ extends Control
 @onready var krits_label = $Krits
 @onready var runas_label = $RunasLabel
 
+const ITEM_TEMPLATE = preload("res://escenas/logro_item.tscn")
+
 func _ready():
+	_crear_items()
 	_actualizar_logros()
-	
+
+func _crear_items():
+	var lista = $ScrollContainer/Lista
+	for child in lista.get_children():
+		lista.remove_child(child)
+		child.queue_free()
+	for l in GameManager.LOGROS:
+		var item = ITEM_TEMPLATE.instantiate()
+		item.name = l.id
+		lista.add_child(item)
+		var btn = Button.new()
+		btn.name = "ReclamarBtn"
+		btn.visible = false
+		btn.text = "RECLAMAR"
+		btn.size_flags_horizontal = Control.SIZE_EXPAND
+		btn.flat = true
+		item.add_child(btn)
+
 func _process(_delta):
 	krits_label.text = ": " + str(GameManager.krits_totales)
 	runas_label.text = ": " + str(GameManager.runas)
+
 func _actualizar_logros():
 	for item in $ScrollContainer/Lista.get_children():
 		var id = item.name

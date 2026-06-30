@@ -28,6 +28,7 @@ func _on_area_entered(area):
 		return
 
 	if area.is_in_group("flechas"):
+		mostrar_impacto_colision()
 		destruir()
 		game_over()
 
@@ -40,11 +41,14 @@ func _on_area_entered(area):
 func clavar(enemigo):
 	clavada = true
 	velocidad = 0
-	GameManager.puntos += 10
+	GameManager.agregar_puntos(10)
 
 	if enemigo.has_method("recibir_dano"):
 		enemigo.recibir_dano(dano, false)
 		enemigo.shake(15.0)
+
+	GameManager.registrar_racha_hit()
+	GameManager.racha_krits = 0
 
 	global_position += direccion * offset_entierro
 	crear_impacto(enemigo)
@@ -66,12 +70,19 @@ func golpe_critico(critico):
 	clavada = true
 	velocidad = 0
 
+	var es_boss = enemigo.is_in_group("bosses")
+
 	if enemigo.has_method("recibir_dano"):
 		enemigo.recibir_dano(30, true)
 		enemigo.shake(15.0)
 
-	GameManager.agregar_krit()
-	GameManager.puntos += 50
+	if es_boss:
+		GameManager.agregar_krit_boss()
+	else:
+		GameManager.agregar_krit()
+	GameManager.registrar_racha_hit()
+	GameManager.registrar_racha_krit()
+	GameManager.agregar_puntos(50)
 	critico.queue_free()
 
 	global_position += direccion * offset_entierro_critico
@@ -105,12 +116,21 @@ func crear_impacto_critico(enemigo):
 	impacto_critico.position = enemigo.to_local(global_position)
 	impacto_critico.emitting = true
 
+func mostrar_impacto_colision():
+	var muerte = preload("res://escenas/muerte_jugador.tscn")
+	var particulas = muerte.instantiate()
+	get_tree().current_scene.add_child(particulas)
+	particulas.global_position = global_position
+	particulas.emitting = true
+
 func game_over():
 	var jugador = get_tree().get_first_node_in_group("jugador")
 	if jugador:
 		jugador.die()
 
 func destruir():
+	if not clavada:
+		GameManager.reset_rachas()
 	var jugador = get_tree().get_first_node_in_group("jugador")
 	if jugador:
 		jugador.puede_disparar = true

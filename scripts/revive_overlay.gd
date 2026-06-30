@@ -9,7 +9,12 @@ func costo_actual() -> int:
 	return 50 * (1 << GameManager.contador_resurrecciones)
 
 func es_gratis() -> bool:
-	return GameManager.selected_character == 2 and GameManager.revive_gratis_disponible
+	if not GameManager.revive_gratis_disponible:
+		return false
+	var data = GameManager.CHARACTER_DATA[GameManager.selected_character]
+	if data.has("pasiva") and data.pasiva.has("revive_gratis"):
+		return data.pasiva.revive_gratis
+	return false
 
 func mostrar():
 	escala_base = Vector2(0.155, 0.155)
@@ -61,7 +66,6 @@ func _on_revivir_button_pressed():
 		_limpiar()
 		GameManager.runas -= costo
 		GameManager.contador_resurrecciones += 1
-		GameManager.verificar_logro("regreso")
 		GameManager.guardar_datos()
 		get_tree().paused = false
 		visible = false
