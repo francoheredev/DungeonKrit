@@ -8,6 +8,9 @@ var tween_corazon: Tween
 func costo_actual() -> int:
 	return 50 * (1 << GameManager.contador_resurrecciones)
 
+func es_gratis() -> bool:
+	return GameManager.selected_character == 2 and GameManager.revive_gratis_disponible
+
 func mostrar():
 	escala_base = Vector2(0.155, 0.155)
 	$Corazon.scale = escala_base
@@ -17,7 +20,10 @@ func mostrar():
 	activo = true
 	tiempo_restante = 5.0
 	$"../BlurOverlay".visible = true
-	$CostoLabel.text = "%d RUNAS - 5s" % costo_actual()
+	if es_gratis():
+		$CostoLabel.text = "GRATIS - 5s"
+	else:
+		$CostoLabel.text = "%d RUNAS - 5s" % costo_actual()
 
 	if tween_corazon and tween_corazon.is_valid():
 		tween_corazon.kill()
@@ -31,12 +37,24 @@ func _process(delta):
 	tiempo_restante -= delta
 	var s = ceili(tiempo_restante)
 	if s >= 0:
-		$CostoLabel.text = "%d RUNAS - %ds" % [costo_actual(), s]
+		if es_gratis():
+			$CostoLabel.text = "GRATIS - %ds" % s
+		else:
+			$CostoLabel.text = "%d RUNAS - %ds" % [costo_actual(), s]
 	if tiempo_restante <= 0:
 		_ir_al_menu()
 
 func _on_revivir_button_pressed():
 	if not activo:
+		return
+	if es_gratis():
+		_limpiar()
+		GameManager.revive_gratis_disponible = false
+		get_tree().paused = false
+		visible = false
+		var jugador = get_tree().get_first_node_in_group("jugador")
+		if jugador and jugador.has_method("revivir"):
+			jugador.revivir()
 		return
 	var costo = costo_actual()
 	if GameManager.runas >= costo:

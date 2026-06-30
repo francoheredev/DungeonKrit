@@ -26,7 +26,7 @@ func _on_pausa_button_pressed():
 func _on_tiempo_timer_timeout():
 	tiempo += 1
 
-	var minutos = tiempo / 60
+	var minutos = int(tiempo / 60.0)
 	var segundos = tiempo % 60
 
 	tiempo_label.text = "%02d:%02d" % [minutos, segundos]

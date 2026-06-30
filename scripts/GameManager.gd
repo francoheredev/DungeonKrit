@@ -10,6 +10,7 @@ var selected_character := 0
 var runas := 0
 var personajes_desbloqueados := [true, false, false, false]
 var contador_resurrecciones := 0
+var revive_gratis_disponible := true
 
 const CHARACTER_DATA = [
 	{
@@ -28,36 +29,36 @@ const CHARACTER_DATA = [
 		name = "Asesino",
 		proyectil = preload("res://escenas/proyectil2.tscn"),
 		muerte = preload("res://escenas/muerte_jugador.tscn"),
-		velocidad = 600,
-		velocidad_apuntado = 18.0,
-		cooldown_disparo = 0.15,
-		dano = 5,
-		velocidad_proyectil = 1400.0,
-		distancia_maxima_proyectil = 2000.0,
+		velocidad = 800,
+		velocidad_apuntado = 20.0,
+		cooldown_disparo = 0.12,
+		dano = 4,
+		velocidad_proyectil = 1500.0,
+		distancia_maxima_proyectil = 1600.0,
 		offset_proyectil = Vector2(55, -100),
 	},
 	{
 		name = "Mago",
 		proyectil = preload("res://escenas/proyectil3.tscn"),
 		muerte = preload("res://escenas/muerte_jugador.tscn"),
-		velocidad = 750,
-		velocidad_apuntado = 20.0,
-		cooldown_disparo = 0.2,
-		dano = 8,
-		velocidad_proyectil = 1500.0,
-		distancia_maxima_proyectil = 1600.0,
+		velocidad = 600,
+		velocidad_apuntado = 12.0,
+		cooldown_disparo = 0.35,
+		dano = 14,
+		velocidad_proyectil = 1100.0,
+		distancia_maxima_proyectil = 1500.0,
 		offset_proyectil = Vector2(60, -100),
 	},
 	{
 		name = "Ronin",
 		proyectil = preload("res://escenas/proyectil4.tscn"),
 		muerte = preload("res://escenas/muerte_jugador.tscn"),
-		velocidad = 550,
-		velocidad_apuntado = 12.0,
-		cooldown_disparo = 0.35,
-		dano = 15,
-		velocidad_proyectil = 1600.0,
-		distancia_maxima_proyectil = 2200.0,
+		velocidad = 500,
+		velocidad_apuntado = 22.0,
+		cooldown_disparo = 0.5,
+		dano = 18,
+		velocidad_proyectil = 1800.0,
+		distancia_maxima_proyectil = 2500.0,
 		offset_proyectil = Vector2(60, -100),
 	},
 ]
@@ -127,6 +128,7 @@ func reset():
 	kills = 0
 	krits_run = 0
 	contador_resurrecciones = 0
+	revive_gratis_disponible = true
 
 func registrar_muerte_enemigo():
 	kills += 1

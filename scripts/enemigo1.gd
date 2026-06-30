@@ -109,6 +109,16 @@ func morir(es_critico := false):
 	queue_free()
 
 
+func congelar(duracion: float):
+	var original = velocidad_movimiento
+	velocidad_movimiento = 0
+	modulate = Color(0.5, 0.6, 1, 1)
+	await get_tree().create_timer(duracion).timeout
+	if not is_inside_tree():
+		return
+	velocidad_movimiento = original
+	modulate = Color(1, 1, 1, 1)
+
 func crear_efecto_muerte():
 	if escena_muerte == null:
 		return
