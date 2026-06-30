@@ -176,8 +176,9 @@ func die():
 func revivir():
 	vivo = true
 	visible = true
-	puede_disparar = true
+	puede_disparar = false
 	invulnerable = true
 	global_position = posicion_inicial
 	await get_tree().create_timer(1.5).timeout
 	invulnerable = false
+	puede_disparar = true
